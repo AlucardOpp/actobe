@@ -1,0 +1,51 @@
+import {iosVhFix} from './utils/ios-vh-fix';
+import {initModals} from './modules/modals/init-modals';
+import {enableSliderBackground} from './modules/slider-background';
+import {enableFactoidsAnimation} from './modules/factoids';
+import {enableSliderFrame} from './modules/slider-frame';
+import {toggleMainMenu} from './modules/header';
+import {enableSliderCards, disableTabIndex} from './modules/slider-cards';
+import {initAccordions} from './modules/init-accordion';
+import {enablesliderPhotos} from './modules/slider-photos';
+import {setWindowHeight} from './modules/promo';
+import {enableAnimation} from './modules/animation';
+import {setCheckboxes, setToggles, setScrollbar, toggleFilters, closePopup, applyForm} from './modules/map-form';
+import {initFormValidate} from './modules/init-form-validate';
+import {setSideNavWidth, enableNavigation, setSideNavFixed, hideSideNav, buttonToggle, sideNavHandling} from './modules/side-nav';
+import './modules/custom-select';
+import {contactsListHandling} from './modules/contacts';
+import {modalPicture} from './modules/modal-picture';
+
+window.addEventListener('DOMContentLoaded', () => {
+  iosVhFix();
+  enableFactoidsAnimation();
+  enableSliderBackground();
+  enableSliderFrame();
+  toggleMainMenu();
+  enableSliderCards();
+  disableTabIndex();
+  initAccordions();
+  disableTabIndex();
+  enablesliderPhotos();
+  setWindowHeight();
+  enableAnimation();
+  setToggles();
+  setCheckboxes();
+  setScrollbar();
+  toggleFilters();
+  closePopup();
+  initFormValidate();
+  setSideNavWidth();
+  sideNavHandling();
+  enableNavigation();
+  setSideNavFixed();
+  applyForm();
+  hideSideNav();
+  buttonToggle();
+  contactsListHandling();
+  modalPicture();
+
+  window.addEventListener('load', () => {
+    initModals();
+  });
+});

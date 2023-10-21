@@ -1,0 +1,5 @@
+mixin factoids(data)
+  .factoids
+    ul.factoids__list
+      each item in data
+        li(class="factoids__item") #[span.factoids__number!=item.number] !{item.text}

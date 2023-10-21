@@ -1,0 +1,6 @@
+mixin select(data)
+  .custom-select(data-accordion="element")
+    button.custom-select__button(type="button" aria-label="Выберите одну из опций" data-accordion="button") Все проекты
+    ul.custom-select__list(data-accordion="content")
+      each item in data
+        li.custom-select__item(tabindex="0") #{item.name}

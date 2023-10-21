@@ -1,0 +1,73 @@
+extends ../base/layout
+
+block variables
+  - const title = "Индустриальная зона — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "industrial-zone"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(industrialZoneCrumbs).breadcrumbs--margin
+        h1.inner-page__title.inner-page__title--blue.inner-page__title--mobile!= "Индустриальная зона"
+
+        .inner-page__wrapper.inner-page__wrapper--columns
+          +side-nav(industrialZoneNav, "Индустриальная зона")
+          .inner-page__content
+
+            section.inner-section.inner-section--border(id="advantages")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title.inner-section__title--no-mobile!= "Индустриальная зона"
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text.inner-section__text-big--bold!= "Индустриальная зона находится в&nbsp;промышленной зоне&nbsp;г. Актобе, на&nbsp;трассе &laquo;Западная Европа&nbsp;&mdash; Западный Китай&raquo;, в&nbsp;5&nbsp;км от&nbsp;города, в&nbsp;97&nbsp;км от&nbsp;границы с&nbsp;Российской Федерацией (Оренбургская область)."
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "industrial-zone-advantages", "png", 822, 404, "Основные преимущества индустриальной зоны:", 767)
+
+            section.inner-section.inner-section--border(id="control")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!= "Управление индустриальной зоны"
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text.inner-section__text-big--bold!= "Органом управления индустриальной зоны является ТОО &laquo;УКИЗ&raquo; (УКИЗ&nbsp;&mdash; Управляющая компания индустриальной зоной &laquo;Актобе&raquo;), дочерняя компания АО&nbsp;&laquo;СПК &laquo;Актобе&raquo;."
+              h3(data-aos="fade-up" data-aos-once="false").inner-section__subtitle.inner-section__subtitle--list!= "Инвестиционный проект должен отвечать следующим условиям:"
+              ol(data-aos="fade-up" data-aos-once="false").inner-section__list-numbers.inner-section__list-numbers--gold
+                each item in industrialZoneList
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__numbers-item
+                    p.inner-section__numbers-text!= item.text
+
+            section.inner-section.inner-section--border(id="activities")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!= "Приоритетные виды деятельности в индустриальной зоне"
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "industrial-zone-activities", "png", 822, 350, "Приоритетные виды деятельности в индустриальной зоне", 767)
+
+            section.inner-section.inner-section--border(id="manipulation")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!= "Процедуры одобрения и регистрация заявителя в качестве участника индустриальной зоны"
+              ul(data-aos="fade-up" data-aos-once="false").inner-section__list
+                each item in industrialZoneManipulation
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__list-item
+                    h4.inner-section__list-subtitle!= item.title
+                    p.inner-section__list-text!= item.text
+              ol(data-aos="fade-up" data-aos-once="false").inner-section__list-numbers
+                each item in industrialZoneQuestions
+                  li.inner-section__numbers-item
+                    p.inner-section__numbers-text!= item.text
+
+            section.inner-section.inner-section--border(id="requirements")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!= "Основные требования к проекту"
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "industrial-zone-requirements", "png", 822, 499, "Основные требования к проекту", 767)
+
+            section.inner-section.inner-section--border(id="terms")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!= "Условия участия в индустриальной зоне"
+              ul(data-aos="fade-up" data-aos-once="false").inner-section__list
+                each item in industrialZoneCircs
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__list-item
+                    p.inner-section__list-text!= item.text
+
+            section.inner-section.inner-section--border(id="information")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!= "Информация для участника-инвестора индустриальной зоны"
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text.inner-section__text-big--bold!= "Участник ИЗ&nbsp;&mdash; создаёт объекты инфраструктуры на&nbsp;своём (приобретённом/арендованном) земельном участке за&nbsp;счёт собственных средств."
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "industrial-zone-before", "png", 822, 370, "Для ввода проекта", 767)
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "industrial-zone-after", "png", 822, 370, "После ввода проекта", 767)

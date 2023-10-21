@@ -1,0 +1,41 @@
+mixin header(headerMods, currentPage)
+  if (currentPage === "main")
+    header.header
+      .header__container.container.container--widest
+        +logo(currentPage, "header")
+        nav.nav
+          button.nav__toggle(type="button", aria-label="Открыть меню", data-show-text="Открыть меню", data-hide-text="Закрыть меню" ,aria-pressed="false")
+          ul.nav__list
+            each link in headerLinks
+              if (link.popup)
+                li.nav__item.nav__item--popup
+                  button.nav__link.nav__link--popup=link.text
+                  .nav__popup
+                    ul.nav__popup-list
+                      each linkPopup in link.popup
+                        li.nav__item-popup
+                          a.nav__link-popup(href=linkPopup.href)=linkPopup.text
+              else
+                li.nav__item
+                  a.nav__link(href=link.href)=link.text
+        +dropdown()
+  else
+    header.header.header--inner
+      .header__container.container.container--widest
+        +logo(currentPage, "header")
+        nav.nav
+          button.nav__toggle(type="button", aria-label="Открыть меню", aria-pressed="false")
+          ul.nav__list
+            each link in headerLinks
+              if (link.popup)
+                li.nav__item.nav__item--popup
+                  button.nav__link.nav__link--popup=link.text
+                  .nav__popup
+                    ul.nav__popup-list
+                      each linkPopup in link.popup
+                        li.nav__item-popup
+                          a.nav__link-popup(href=linkPopup.href)=linkPopup.text
+              else
+                li.nav__item
+                  a.nav__link(href=link.href)=link.text
+        +dropdown()

@@ -1,0 +1,10 @@
+mixin breadcrumbs(breadcrumbs, color)
+  ul.breadcrumbs(class!=`${attributes.class}`)
+    if(color=="white")
+      each item in breadcrumbs
+        li.breadcrumbs__item.breadcrumbs__item--white
+          a(href!=item.href)!=item.crumb
+    else
+      each item in breadcrumbs
+        li.breadcrumbs__item
+          a(href!=item.href)!=item.crumb

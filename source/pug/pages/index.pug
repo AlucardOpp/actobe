@@ -1,0 +1,144 @@
+extends ../base/layout
+
+block variables
+  - var title = "Список страниц"
+
+block main
+  style.
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    h1, h2 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    a {
+      color: rgb(10, 10, 175);
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 7px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      ol {
+        padding-left: 20px;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+    }
+
+  -
+    var pages = [
+      [
+        {
+          name: "Главная — main.html",
+          src: "main.html"
+        },
+        {
+          name: "Предложения — offers.html",
+          src: "offers.html"
+        },
+
+        {
+          name: "Проект подробно — project.html",
+          src: "project.html"
+        },
+        {
+          name: "Новости — news-page.html",
+          src: "news-page.html"
+        },
+        {
+          name: "Новости подробно — news-detail.html",
+          src: "news-detail.html"
+        },
+        {
+          name: "Интерактивная карта — map.html",
+          src: "map.html"
+        },
+        {
+          name: "Контакты — contacts.html",
+          src: "contacts.html"
+        },
+        {
+          name: "Приоритетные отрасли — priority-industries.html",
+          src: "priority-industries.html"
+        },
+      ],
+      [
+        {
+          name: "О регионе — region.html",
+          src: "region.html"
+        },
+        {
+          name: "Истории успеха — history.html",
+          src: "history.html"
+        },
+        {
+          name: "История успеха подробно — history-details.html",
+          src: "history-details.html"
+        },
+        {
+          name: "Нормативная база — regulatory-framework.html",
+          src: "regulatory-framework.html"
+        },
+        {
+          name: "Инструменты поддержки бизнеса — support-tools.html",
+          src: "support-tools.html"
+        },
+        {
+          name: "Преимущества Актюбинской области — region-advantages.html",
+          src: "region-advantages.html"
+        },
+        {
+          name: "Общий обзор  — general-review.html",
+          src: "general-review.html"
+        },
+        {
+          name: "Индустриальная зона — industrial-zone.html",
+          src: "industrial-zone.html"
+        },
+        {
+          name: "Государственная поддержка — government-support.html",
+          src: "government-support.html"
+        },
+        {
+          name: "Регистрация бизнеса — business-registration.html",
+          src: "business-registration.html"
+        },
+        {
+          name: "Разрешительные процедуры — permit-procedures.html",
+          src: "permit-procedures.html"
+        },
+      ]
+    ]
+
+  main.container.main-index
+    +logo(currentPage, "header")
+    h1 Список страниц
+    each group, index in pages
+      h2 !{`Итерация ${  index + 1 }`}
+      ol
+        each page in group
+          li
+            a(href= page.src)= page.name

@@ -1,0 +1,11 @@
+mixin cards-grid(data)
+  ul.cards-grid
+    each item in data
+      li.cards-grid__item
+        a.card-region(class!=`card-region--${item.class}`, href!=item.href)
+          h2.card-region__title!= item.title
+          p.card-region__text!= item.text
+          .card-region__img
+            +picture("content", item.img, "png", item.width, item.height, item.title)
+          span.icon-arrow.icon-arrow--fill.icon-arrow--blue.card-region__button
+            +icon("button-arrow-right", "17", "12")

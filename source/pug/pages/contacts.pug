@@ -1,0 +1,95 @@
+extends ../base/layout
+
+block variables
+  - const title = "Контакты — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "contacts"
+
+block main
+  main
+    .inner-page.contacts
+      .container.container--widest
+        +breadcrumbs(contactsCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--small-margin
+        h1.contacts__title.inner-page__title.inner-page__title--blue!="Контакты"
+        .inner-page__wrapper.inner-page__wrapper--columns
+          +side-nav(contactsNav, "Адрес")
+          .inner-page__content
+            section(id="address").contacts__section.contacts__section--no-margin
+              .contacts__content-wrapper.contacts__content-wrapper--active.address-socials(data-aos="fade-up" data-aos-delay="100")
+                .address-socials__contacts
+                  h2.contacts__section-title!="Адрес:"
+                  p.address-socials__address!="030010, Республика Казахстан, Актюбинская область, г. Актобе, проспект Абилкайыр-хана, 40"
+                .address-socials__socials
+                  h2.contacts__section-title!="Социальные сети:"
+                  +socials("vertical")
+            section(id="office").contacts__section.office
+              .contacts__content-wrapper(data-aos="fade-up" data-aos-delay="150")
+                h2.contacts__section-title!="Канцелярия:"
+                ul.office__list
+                  each item in office
+                    li.office__item
+                      span.office__info-name!=`${item.infoName}:`
+                      if (item.type === "tel")
+                        a(aria-label=`Позвонить на номер ${item.href}` href=`tel:+${item.href}`).office__info!=item.info
+                      else
+                        a(aria-label=`Написать на почту ${item.href}` href=`mailto:${item.href}`).office__info!=item.info
+            section(id="responsible").contacts__section.persons
+              .contacts__content-wrapper(data-aos="fade-up" data-aos-delay="200")
+                h2.contacts__section-title!="Данные ответственных лиц:"
+                ul.persons__list
+                  each item, index in persons
+                    li.persons__item(data-aos="fade-up")
+                      +contact-person(item)
+            section(id="emergency").contacts__section.emergency
+              .contacts__content-wrapper(data-aos="fade-up")
+                h2.contacts__section-title!="Экстренные службы:"
+                ul.emergency__list
+                  each item, index in emergency
+                    li.emergency__item(data-aos="fade-up" data-aos-delay!=`${50 + [index] * 50}`)
+                      p.emergency__name.contacts__section-title!=item.name
+                      .emergency__info
+                        span.emergency__tel!="Тел:"
+                        a(class!="emergency__link" href=`tel:+${item.tel}` aria-label=`Позвонить на номер ${item.tel}`)!=item.tel
+            section.contacts__section.akimats
+              .contacts__content-wrapper(data-aos="fade-up")
+                .akimats__aktobe(id="akimat" data-aos="fade-up")
+                  h2.contacts__section-title.akimats__title!="Акимат города Актобе:"
+                  +link("Акимат города Актобе", "", "", "", "icon")(class="akimats__link" href="#")
+                .akimats__districts(id="akimats")
+                  h2(data-aos="fade-up" data-aos-delay="100").contacts__section-title.akimats__title!="Акиматы районов"
+                  ul.akimats__list
+                    each item, index in akimats
+                      li.akimats__item(data-aos="fade-up" data-aos-delay!=`${50 + [index] * 50}`)
+                        +link(`Акимат ${item.district} района`, "", "" , "", "icon")(class="akimats__link" href=item.href)
+            section(id="management").contacts__section.management
+              .contacts__content-wrapper(data-aos="fade-up")
+                h2.contacts__section-title.contacts__section-title--bold!="Управления:"
+                ul.management__list
+                  each item, index in management
+                    li.management__item(data-aos="fade-up")
+                      .management__name!=item.name
+                      ul.management__contacts
+                        li.management__contact
+                          span.management__info-name!="Тел:"
+                          a(aria-label=`Позвонить на номер ${item.hrefTel}` href=`tel:+${item.hrefTel}`).management__info!=item.tel
+                        li.management__contact
+                          span.management__info-name!="E-mail:"
+                          a(aria-label=`Написать на почту ${item.email}` href=`mailto:+${item.email}`).management__info!=item.email
+            section(id="feedback").contacts__section.feedback
+              .contacts__content-wrapper(data-aos="fade-up")
+                h2.contacts__section-title!="Форма обратной связи:"
+                .feedback__form(data-validate)
+                  form(method="post")
+                    +form-field("text", "feedback-name", "ФИО", "Введите свое имя", "required").feedback__field
+                    .feedback__contacts
+                      +form-field("tel", "feedback-tel", "Номер телефона", "Введите свой номер", "required").feedback__field
+                      +form-field("email", "feedback-email", "E-mail", "Введите почту", "required").feedback__field
+                    +form-field("text", "feedback-organization", "Организация", "Введите организацию").feedback__field
+                    +form-field("text", "feedback-post", "Должность", "Введите организацию").feedback__field
+                    +form-field("textarea", "feedback-comment", "Сообщение", "Cообщение", "required").feedback__field
+                    p.feedback__required!="*&nbsp;&nbsp;Поля обязательные для заполнения"
+                    button(type="submit" class="feedback__button" aria-label="Отправить форму")!="Отправить"

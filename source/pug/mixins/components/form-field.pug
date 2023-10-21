@@ -1,0 +1,37 @@
+mixin form-field(type, name, label, placeholder, required)
+    if (type === "text")
+      if (required === "required")
+        .form-field(class!=attributes.class data-validate-type="text" data-limitations="letters")
+          label(class="form-field__label" for!=name) #{label}*
+          input(class="form-field__field" type="text" name!=name placeholder!=placeholder id!=name required)
+      else
+        .form-field(class!=attributes.class)
+          label(class="form-field__label" for!=name)!=label
+          input(class="form-field__field" type="text" name!=name placeholder!=placeholder id!=name)
+    else if (type === "tel")
+      if (required === "required")
+        .form-field(class!=attributes.class data-validate-type="phone")
+          label(class="form-field__label" for!=name) #{label}*
+          input(class="form-field__field" type="tel" name!=name placeholder!=placeholder id!=name required)
+      else
+        .form-field(class!=attributes.class)
+          label(class="form-field__label" for!=name)!=label
+          input(class="form-field__field" type="tel" name!=name placeholder!=placeholder id!=name)
+    else if (type === "email")
+      if (required === "required")
+        .form-field(class!=attributes.class data-validate-type="email")
+          label(class="form-field__label" for!=name) #{label}*
+          input(class="form-field__field" type="email" name!=name id!=name placeholder!=placeholder required)
+      else
+        .form-field(class!=attributes.class)
+          label(class="form-field__label" for!=name)!=label
+          input(class="form-field__field" type="email" name!=name id!=name placeholder!=placeholder)
+    else if (type === "textarea")
+      if (required === "required")
+        .form-field(class!=attributes.class data-validate-type="text")
+          label(class="form-field__label" for!=name) #{label}*
+          textarea(class="form-field__field" name!=name id!=name placeholder!=placeholder required)
+      else
+        .form-field(class!=attributes.class)
+          label(class="form-field__label" for!=name)!=label
+          textarea(class="form-field__field" name!=name id!=name placeholder!=placeholder)

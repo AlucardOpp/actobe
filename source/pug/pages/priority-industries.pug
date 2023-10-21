@@ -1,0 +1,116 @@
+extends ../base/layout
+
+block variables
+  - const title = "Приоритетные отрасли — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "priority"
+
+block main
+  main
+    .inner-page
+      .container.container--widest
+        +breadcrumbs(priorityCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+        .priority
+          h1.priority__main-title Приоритетные отрасли
+          .inner-page__wrapper.inner-page__wrapper--columns
+            +side-nav(priorityNav)
+            .priority__sections-wrapper(data-accordion="parent")
+              section.priority__sections(id="metallurgical" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="100" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-metallurgical")
+                  h2.priority__sections-title #{metallurgicalContent.mainTitle}
+                .priority__content-wrapper(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  h3.priority__content-title!=metallurgicalContent.contentTitle
+                  each text in metallurgicalContent.textContent
+                    p(data-aos="fade-up" data-aos-once="false").priority__content-text  #{text}
+                  span.priority__promising-title(data-aos="fade-up" data-aos-once="false") #{metallurgicalContent.promisingTitle}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "metallurgical-niches-1", "jpg", 822, 375, "Карточка статистики по производству металлических изделий", 767)
+
+              section.priority__sections(id="chemical" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="150" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-chemical")
+                  h2.priority__sections-title #{chemicalContent.title}
+                .priority__content-wrapper(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  h3.priority__content-title #{chemicalContent.contentTitle}
+                  each text in chemicalContent.textContent
+                    p(data-aos="fade-up" data-aos-once="false").priority__content-text!=text
+                  span.priority__promising-title(data-aos="fade-up" data-aos-once="false") #{chemicalContent.promisingTitle}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "chemical-niches-1", "jpg", 822, 1048, "Карточка статистики по производству сжиженного газа", 767)
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "chemical-niches-2", "jpg", 822, 773, "Карточка статистики по производству полимеров", 767)
+
+              section.priority__sections(id="electrical" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="200" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-electrical")
+                  h2.priority__sections-title #{electricalContent.title}
+                .priority__content-wrapper(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  h3.priority__content-title #{electricalContent.contentTitle}
+                  each text in electricalContent.textContent
+                    p(data-aos="fade-up" data-aos-once="false").priority__content-text #{text}
+                  span.priority__promising-title(data-aos="fade-up" data-aos-once="false") #{electricalContent.promisingTitle}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "electrical-niches-1", "jpg", 822, 506, "Карточка статистики по ветровой энергетике", 767)
+
+              section.priority__sections(id="engineering" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="250" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-engineering")
+                  h2.priority__sections-title #{engineeringContent.title}
+                .priority__content-wrapper.priority__content-wrapper--border-small(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  h3.priority__content-title(data-aos="fade-up" data-aos-once="false") #{engineeringContent.contentTitle}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "engineering-niches-1", "jpg", 822, 452, "Карточка статистики по ветровой энергетике", 767)
+                  each text in engineeringContent.textContent
+                    p(data-aos="fade-up" data-aos-once="false").priority__content-text #{text}
+
+              section.priority__sections(id="agricultural" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="300" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-agricultural")
+                  h2.priority__sections-title #{agriculturalContent.title}
+                .priority__content-wrapper(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  h3.priority__content-title #{agriculturalContent.contentTitle}
+                  each text in agriculturalContent.textContent
+                    p(data-aos="fade-up" data-aos-once="false").priority__content-text!=text
+                  span.priority__promising-title(data-aos="fade-up" data-aos-once="false") #{agriculturalContent.promisingTitle}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "agricultural-niches-1", "jpg", 822, 321, "Карточка статистики по растениеводству", 767)
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "agricultural-niches-2", "jpg", 822, 345, "Карточка статистики по животноводству", 767)
+
+              section.priority__sections(id="food" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="350" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-food")
+                  h2.priority__sections-title #{foodContent.title}
+                .priority__content-wrapper(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  h3.priority__content-title #{foodContent.contentTitle}
+                  each item, index in foodContent.textContent
+                    if (index === 0)
+                      p(data-aos="fade-up" data-aos-once="false").priority__content-text #{item.text}
+                    else
+                      h4.priority__content-span #{item.title}
+                      p(data-aos="fade-up" data-aos-once="false").priority__content-text #{item.text}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "food-niches-1", "jpg", 822, 596, "Карточка статистики по ветровой энергетике", 767)
+
+              section.priority__sections(id="pharmaceutical" data-accordion="element")
+                .priority__sections-title-wrapper(data-aos-offset="0" data-aos="fade-up" data-aos-once="false" data-aos-delay="400" data-accordion="button")
+                  span.priority__sections-icon
+                    +svg(52, 52, "icon-pharmaceutical")
+                  h2.priority__sections-title #{pharmaceuticalContent.title}
+                .priority__content-wrapper.priority__content-wrapper--border-small(data-accordion="content" data-aos="fade-up" data-aos-once="false" data-aos-delay="150")
+                  p(data-aos="fade-up" data-aos-once="false").priority__content-text #{pharmaceuticalContent.contentTitle}
+                  .priority__img(data-aos="fade-up" data-aos-once="false")
+                    +picture("content", "pharmaceutical-niches-1", "jpg", 822, 383, "Карточка статистики по развитию фармацевтики", 767)
+                  each text in pharmaceuticalContent.textContent
+                    p(data-aos="fade-up" data-aos-once="false").priority__content-text #{text}

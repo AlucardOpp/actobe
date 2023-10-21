@@ -1,0 +1,100 @@
+extends ../base/layout
+
+block variables
+  - const title = "Разрешительные процедуры — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "permit-procedures"
+
+
+block main
+  main
+    .inner-page.inner-page--middle-margin.permit-procedures
+      .container.container--widest
+        +breadcrumbs(permitProceduresCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+        h1.inner-page__title.inner-page__title--blue.inner-page__title--mobile Разрешительные процедуры
+        .inner-page__wrapper.inner-page__wrapper--columns
+          +side-nav(permitProceduresNav, "Порядок привлечения иностранной рабочей силы")
+          .inner-page__content
+            section.inner-section.inner-section--border(id="procedure-for-attracting")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=attractingContent.mainTitle
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text-big=attractingContent.text
+              ol(data-aos="fade-up" data-aos-once="false").inner-section__list-numbers.inner-section__list-numbers--gold
+                each item in attractingContent.list
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__numbers-item
+                    p.inner-section__numbers-text=item
+            section.inner-section.inner-section--border(id="obtaining-procedure")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=obtainingContent.mainTitle
+              .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+                +picture2("content", "obtaining-procedure", "png", 821, 571, "Карточка процедура получения разрешения на привлечение иностранной рабочей силы", 767)
+              h3(data-aos="fade-up" data-aos-once="false").inner-section__title=obtainingContent.textBold
+              ul(data-aos="fade-up" data-aos-once="false").inner-section__list.inner-section__list--gold
+                each item in obtainingContent.list
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__list-item
+                    p.inner-section__list-text=item
+              .inner-section__columns(data-aos="fade-up" data-aos-delay="100")
+                .inner-section__columns-info.inner-section__columns-info--blue
+                  p(data-aos="fade-up" data-aos-once="false").inner-section__columns-text=obtainingContent.columns1
+                .inner-section__columns-info
+                  each item in obtainingContent.columns2
+                    p(data-aos="fade-up" data-aos-once="false").inner-section__columns-text=item
+            section.inner-section.inner-section--border(id="land-procedure")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=landContent.mainTitle
+              .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+                +picture2("content", "land-procedure", "png", 821, 789, "Карточка процедура получения земельного участка", 767)
+            section.inner-section.inner-section--border(id="build-procedure")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=buildContent.mainTitle
+              .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+                +picture2("content", "build-procedure", "png", 821, 2017, "Карточка процедура оформления документации для строительства", 767)
+            section.inner-section.inner-section--border(id="permission-water")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=waterContent.mainTitle
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text-big.inner-section__text-big--blue=waterContent.text
+              ol(data-aos="fade-up" data-aos-once="false").inner-section__list-numbers.inner-section__list-numbers--gold
+                each item in waterContent.para
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__numbers-item
+                    p.inner-section__numbers-text=item.text
+                    .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                      +picture2(
+                              item.img.path,
+                              item.img.image,
+                              item.img.format,
+                              item.img.width,
+                              item.img.height,
+                              item.img.altText, 767)
+            section.inner-section.inner-section--border(id="permission-power")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=powerContent.mainTitle
+              .inner-section__table-wrapper(data-aos="fade-up" data-aos-once="false")
+                table.inner-section__table
+                  tr
+                    th.inner-section__row-caption.inner-section__row-caption--number №
+                    th.inner-section__row-caption Наименование документа
+                    th.inner-section__row-caption Источник получения документа
+                  each row in powerContent.table
+                    tr.inner-section__table-rows
+                      each item in row
+                        td.inner-section__row-number=item.tr
+                        td.inner-section__row=item.tr2
+                        td.inner-section__row=item.tr3
+            section.inner-section.inner-section--border(id="permission-heat")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=heatContent.mainTitle
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text=heatContent.text2
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text-big.inner-section__text-big--blue=heatContent.text
+              ul(data-aos="fade-up" data-aos-once="false").inner-section__list.inner-section__list--gold
+                each item in heatContent.list
+                  if(item.isPara)
+                    li(data-aos="fade-up" data-aos-once="false").inner-section__list-item
+                      p.inner-section__list-text=item.text
+                      span.inner-section__list-subtext=item.subText
+                  else
+                    li(data-aos="fade-up" data-aos-once="false").inner-section__list-item
+                      p.inner-section__list-text=item.text
+
+block modals
+  +modal("modal--picture", "zoom")(data-modal="picture")
+    .modal__img-wrapper
+      .modal__img-container
+        .zoom__item
+          img(src="#")

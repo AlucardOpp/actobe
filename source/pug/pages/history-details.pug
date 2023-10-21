@@ -1,0 +1,42 @@
+extends ../base/layout
+
+block variables
+  - const title = "История успеха — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "history-details"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(historyDetailsCrumbs).inner-page__breadcrumbs
+        section.news-detail
+          h1(data-aos="fade-up").news-detail__title-intro= historyDetailsContent.mainTitle
+          .content
+            span(data-aos="fade-up" data-aos-delay="100")= historyDetailsContent.region
+            .content__img(data-aos="fade-up" data-aos-delay="150")
+              +picture2(
+                  historyDetailsContent.img.path,
+                  historyDetailsContent.img.image,
+                  historyDetailsContent.img.format,
+                  historyDetailsContent.img.width,
+                  historyDetailsContent.img.height,
+                  historyDetailsContent.img.altText,
+                  historyDetailsContent.img.mobile
+              )(data-aos="fade-up")
+            p.content__big-text(data-aos="fade-up")=historyDetailsContent.info
+            p(data-aos="fade-up")=historyDetailsContent.text
+            .content__img(data-aos="fade-up" data-aos-delay="150")
+              +picture2(
+                  historyDetailsContent.img2.path,
+                  historyDetailsContent.img2.image,
+                  historyDetailsContent.img2.format,
+                  historyDetailsContent.img2.width,
+                  historyDetailsContent.img2.height,
+                  historyDetailsContent.img2.altText,
+                  historyDetailsContent.img.mobile
+              )(data-aos="fade-up")

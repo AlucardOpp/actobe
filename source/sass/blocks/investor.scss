@@ -1,0 +1,379 @@
+.investor {
+  border-radius: 0 0 8px 8px;
+  background-color: $color-default-white;
+
+  @include vp--767 {
+    border-radius: 0;
+  }
+}
+
+.investor__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: myCounter;
+  display: grid;
+  grid-template-areas:
+    "registration procedures procedures"
+    "registration base support"
+    "industrial industrial support"
+    "industrial industrial tools";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, minmax(200px, max-content));
+  column-gap: 30px;
+  row-gap: 30px;
+
+  @include vp--767 {
+    row-gap: 0;
+    column-gap: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+.investor__name {
+  margin: 0 0 5px 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-midnight-express-3;
+  transition: color $trans--300;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    counter-increment: myCounter;
+    content: "0"counter(myCounter);
+    transition: color $trans--300;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+    letter-spacing: 0.2px;
+    color: $color-wedgewood;
+    left: 0;
+    top: -45px;
+  }
+
+  @include vp--767 {
+    &::before {
+      top: -40px;
+    }
+  }
+}
+
+.investor__item {
+  position: relative;
+
+  & .investor__link {
+    background-color: $color-bali-hai;
+  }
+
+  &--registration {
+    & .investor__link {
+      background-color: $color-bali-hai;
+    }
+
+    grid-area: registration;
+
+    & .investor__img {
+      top: 184px;
+      right: 43px;
+
+      & img {
+        width: 196px;
+        height: 159px;
+      }
+    }
+  }
+
+  &--procedures {
+    & .investor__link {
+      background-color: $color-zumthor;
+    }
+
+    grid-area: procedures;
+
+    & .investor__img {
+      top: 32px;
+      right: 56px;
+
+      & img {
+        width: 141px;
+        height: 154px;
+        object-position: right bottom;
+      }
+    }
+
+    & br {
+      display: none;
+    }
+  }
+
+  &--base {
+    & .investor__link {
+      background-color: $color-pattens-blue;
+    }
+
+    grid-area: base;
+
+    & .investor__img {
+      top: 37px;
+      right: 9px;
+
+      & img {
+        width: 123px;
+        height: 145px;
+        object-position: right bottom;
+      }
+    }
+  }
+
+  &--support {
+    & .investor__link {
+      background-color: $color-bali-hai;
+    }
+
+    grid-area: support;
+
+    & .investor__img {
+      top: 133px;
+      right: 65px;
+
+      & img {
+        width: 132px;
+        height: 229px;
+      }
+    }
+  }
+
+  &--industrial {
+    & .investor__link {
+      background-color: $color-jungle-mist-2;
+    }
+
+    grid-area: industrial;
+
+    & .investor__img {
+      bottom: 6px;
+      right: 31px;
+
+      & img {
+        width: 280px;
+        height: 255px;
+        object-position: right bottom;
+      }
+    }
+
+    & br {
+      display: none;
+    }
+  }
+
+  &--tools {
+    & .investor__link {
+      background-color: $color-pattens-blue;
+    }
+
+    grid-area: tools;
+
+    & .investor__img {
+      bottom: 19px;
+      right: 19px;
+
+      & img {
+        width: 133px;
+        height: 100px;
+        object-position: right bottom;
+      }
+    }
+  }
+
+  @include vp--1023 {
+    &--registration {
+      & .investor__img {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        width: 157px;
+        height: 127px;
+      }
+    }
+
+    &--procedures {
+      & .investor__img {
+        right: 55px;
+      }
+    }
+
+    &--base {
+      & .investor__img {
+        right: 10px;
+      }
+    }
+
+    &--support {
+      & .investor__img {
+        width: 132px;
+        height: 229px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &--industrial {
+      & .investor__img {
+        right: 1px;
+      }
+    }
+
+    &--tools {
+      & .investor__img {
+        right: 18px;
+      }
+    }
+  }
+
+  @include vp--767 {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--registration {
+      & .investor__img {
+        width: auto;
+        height: auto;
+        top: auto;
+        bottom: 16px;
+        right: 23px;
+        left: auto;
+        transform: none;
+
+        & img {
+          width: 139px;
+          height: 109px;
+        }
+      }
+    }
+
+    &--procedures {
+      & .investor__img {
+        top: auto;
+        bottom: 32px;
+        right: 11px;
+
+        & img {
+          width: 104px;
+          height: 114px;
+        }
+      }
+
+      & br {
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+
+    &--base {
+      & .investor__img {
+        top: auto;
+        bottom: 20px;
+        right: 9px;
+      }
+    }
+
+    &--support {
+      & .investor__img {
+        width: auto;
+        height: auto;
+        top: auto;
+        bottom: 21px;
+        right: 17px;
+        left: auto;
+        transform: none;
+
+        & img {
+          width: 87px;
+          height: 150px;
+        }
+      }
+    }
+
+    &--industrial {
+      & .investor__img {
+        bottom: 25px;
+        right: 0;
+
+        & img {
+          width: 129px;
+          height: 116px;
+        }
+      }
+
+      & br {
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+
+    &--tools {
+      & .investor__img {
+        bottom: 19px;
+        right: 22px;
+      }
+    }
+  }
+}
+
+.investor__link {
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 75px 30px 32px 30px;
+  user-select: none;
+  transition: background-color $trans--300, color $trans--300;
+
+  &:hover {
+    background-color: $color-steel-blue;
+    color: $color-default-white;
+
+    & .investor__name,
+    & .investor__name::before {
+      color: $color-default-white;
+    }
+
+    & .investor__arrow svg {
+      transform: translateX(5px);
+    }
+  }
+
+  @include vp--767 {
+    min-height: 200px;
+    padding: 68px 100px 30px 30px;
+  }
+}
+
+.investor__img {
+  z-index: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  & img {
+    object-fit: contain;
+  }
+}
+
+.investor__arrow {
+  margin-top: auto;
+  border: none;
+  z-index: 1;
+  transition: transform $trans--300;
+}

@@ -1,0 +1,23 @@
+.cards-grid {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 60px;
+  row-gap: 60px;
+
+  @include vp--1279 {
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+
+  @include vp--1023 {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
+.cards-grid__item {
+  list-style: none;
+  position: relative;
+}

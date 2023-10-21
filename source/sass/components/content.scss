@@ -1,0 +1,107 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content span {
+  display: flex;
+  margin-bottom: 22px;
+
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: $color-heather;
+
+  @include vp--767 {
+    margin-bottom: 16px;
+
+    font-size: 13px;
+  }
+}
+
+.content picture {
+  position: relative;
+  display: flex;
+  margin-bottom: 33px;
+
+  @include aspect-ratio(375/800);
+
+  @include vp--767 {
+    margin-bottom: 20px;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    object-fit: cover;
+
+    @include vp--767 {
+      border-radius: 5px;
+    }
+  }
+}
+
+.content h2 {
+  margin: 0;
+  margin-bottom: 36px;
+
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 40px;
+  color: $color-charcoal;
+
+  @include vp--1023 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  @include vp--767 {
+    margin-bottom: 11px;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.content p {
+  margin: 0;
+  margin-bottom: 32px;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: $color-charcoal;
+
+  @include vp--1023 {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  @include vp--767 {
+    margin-bottom: 26px;
+
+    font-size: 15px;
+    line-height: 26px;
+  }
+}
+
+p.content__big-text {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 31px;
+
+  margin-bottom: 35px;
+
+  @include vp--767 {
+    line-height: 22px;
+
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}

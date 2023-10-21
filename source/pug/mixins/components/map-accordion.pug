@@ -1,0 +1,85 @@
+mixin map-accordion(data, type, icon)
+  if (attributes.class)
+    ul.map-accordion(class!=`map-accordion--${attributes.class} map-accordion--${type}` data-accordion="parent" data-single)
+      each item in data
+        li.map-accordion__item(data-accordion="element")
+          .map-accordion__header
+            .map-accordion__img(class!=`map-accordion__img--${item.image}`)
+              +picture("content", `map-accordion-${item.image}`, "png", 22, 22, "Иконка пункта")
+            button(aria-label="Открыть список фильтров" class=`map-accordion__button` tabindex="0" data-accordion="button")!=item.title
+          if(item.name.length === 1)
+            ul.map-accordion__checkboxes.map-accordion__checkboxes--alone(data-accordion="content")
+              if(item.name.length > 1)
+                li.map-accordion__checkbox
+                  input(type="checkbox" id=`${item.image}-all` name=`${item.image}-all` class="visually-hidden map-accordion__checkbox-input map-accordion__checkbox-input--all")
+                  label(class="map-accordion__checkbox-label map-accordion__checkbox-label--all" for=`${item.image}-all`)!="Выбрать все"
+              - for(var i = 0; i < item.name.length; i++)
+                  if (icon === "icon")
+                    li.map-accordion__checkbox
+                      .map-accordion__icon(class=`map-accordion__icon--${item.id[i]}`)
+                        +picture("content", `map-checkbox-${item.id[i]}`, "png", 13, 13, `${item.name}`)
+                      input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                      label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+                  else
+                    li.map-accordion__checkbox
+                      input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                      label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+          else
+            ul.map-accordion__checkboxes(data-accordion="content")
+              if(item.name.length > 1)
+                li.map-accordion__checkbox
+                  input(type="checkbox" id=`${item.image}-all` name=`${item.image}-all` class="visually-hidden map-accordion__checkbox-input map-accordion__checkbox-input--all")
+                  label(class="map-accordion__checkbox-label map-accordion__checkbox-label--all" for=`${item.image}-all`)!="Выбрать все"
+              - for(var i = 0; i < item.name.length; i++)
+                  if (icon === "icon")
+                    li.map-accordion__checkbox
+                      .map-accordion__icon(class=`map-accordion__icon--${item.id[i]}`)
+                        +picture("content", `map-checkbox-${item.id[i]}`, "png", 13, 13, `${item.name}`)
+                      input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                      label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+                  else
+                    li.map-accordion__checkbox
+                      input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                      label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+  else
+    ul.map-accordion(class!=`map-accordion--${type}` data-accordion="parent" data-single)
+      each item in data
+        li.map-accordion__item(data-accordion="element")
+          .map-accordion__header
+            .map-accordion__img(class!=`map-accordion__img--${item.image}`)
+              +picture("content", `map-accordion-${item.image}`, "png", 22, 22, "Иконка пункта")
+            button(aria-label="Открыть список фильтров" class=`map-accordion__button` tabindex="0" data-accordion="button")!=item.title
+          if(item.name.length === 1)
+            ul.map-accordion__checkboxes.map-accordion__checkboxes--alone(data-accordion="content")
+              if(item.name.length > 1)
+                li.map-accordion__checkbox
+                  input(type="checkbox" id=`${item.image}-all` name=`${item.image}-all` class="visually-hidden map-accordion__checkbox-input map-accordion__checkbox-input--all")
+                  label(class="map-accordion__checkbox-label map-accordion__checkbox-label--all" for=`${item.image}-all`)!="Выбрать все"
+              - for(var i = 0; i < item.name.length; i++)
+                if (icon === "icon")
+                  li.map-accordion__checkbox
+                    .map-accordion__icon(class=`map-accordion__icon--${item.id[i]}`)
+                      +picture("content", `map-checkbox-${item.id[i]}`, "png", 13, 13, `${item.name}`)
+                    input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                    label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+                else
+                  li.map-accordion__checkbox
+                    input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                    label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+          else
+            ul.map-accordion__checkboxes(data-accordion="content")
+              if(item.name.length > 1)
+                li.map-accordion__checkbox
+                  input(type="checkbox" id=`${item.image}-all` name=`${item.image}-all` class="visually-hidden map-accordion__checkbox-input map-accordion__checkbox-input--all")
+                  label(class="map-accordion__checkbox-label map-accordion__checkbox-label--all" for=`${item.image}-all`)!="Выбрать все"
+              - for(var i = 0; i < item.name.length; i++)
+                if (icon === "icon")
+                  li.map-accordion__checkbox
+                    .map-accordion__icon(class=`map-accordion__icon--${item.id[i]}`)
+                      +picture("content", `map-checkbox-${item.id[i]}`, "png", 13, 13, `${item.name}`)
+                    input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                    label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`
+                else
+                  li.map-accordion__checkbox
+                    input(type="checkbox" id=`${item.id[i]}` name=`${item.id[i]}` aria-label="Включить пункт" class="visually-hidden map-accordion__checkbox-input")
+                    label(class="map-accordion__checkbox-label" for=`${item.id[i]}`)!=`${item.name[i]}`

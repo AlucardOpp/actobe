@@ -1,0 +1,7 @@
+mixin table(tableData)
+  .table(data-aos="fade-up" data-aos-delay="350")
+    table
+      each item in tableData
+        tr
+          td!=item.position
+          td!=item.value

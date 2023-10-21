@@ -1,0 +1,153 @@
+.industries {
+  padding-bottom: 383px;
+  background: $white-to-grey;
+  position: relative;
+  overflow: hidden;
+
+  @include vp--767 {
+    padding-bottom: 224px;
+  }
+}
+
+.industries__list {
+  list-style: none;
+  margin: -10px 0 0 -9px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include vp--767 {
+    margin-top: -7px;
+    margin-left: 0;
+  }
+}
+
+.industries__item {
+  width: 49%;
+  min-height: 118px;
+  margin-top: 10px;
+  margin-left: 9px;
+
+  &--one-third {
+    max-width: 299.3px;
+  }
+
+  @include vp--1023 {
+    width: auto;
+
+    &--half {
+      width: 48.67%;
+    }
+
+    &--one-third {
+      width: 32.01%;
+      max-width: none;
+    }
+  }
+
+  @include vp--767 {
+    width: 100%;
+    min-height: 120px;
+    margin: 7px 0 0 0;
+  }
+}
+
+.industries__link {
+  background-color: $color-default-white;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  column-gap: 19px;
+  padding: 32px 23px 28px 23px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  transition: background-color $trans--300, color $trans--300;
+  color: $color-rhino;
+
+  &:hover {
+    background-color: $color-steel-blue;
+    color: $color-default-white;
+
+    & svg {
+      fill: $color-default-white;
+    }
+  }
+
+  @include vp--1023 {
+    padding: 32px 12px 28px 12px;
+    column-gap: 14px;
+  }
+
+  @include vp--767 {
+    padding: 21px 21px 19px 22px;
+    column-gap: 27px;
+  }
+
+  @media (max-width: 320px) {
+    &--building {
+      padding-right: 55px;
+    }
+  }
+}
+
+.industries__svg {
+  align-self: center;
+  fill: $color-rob-roy;
+  transition: fill $trans--300;
+  width: 52px;
+  height: 52px;
+}
+
+.industries__name {
+  font-weight: 700;
+  margin: 0;
+  color: inherit;
+  font-size: 15px;
+  line-height: 20px;
+  align-self: center;
+
+  @include vp--767 {
+    & br {
+      display: none;
+    }
+  }
+
+  @media (max-width: 320px) {
+    & br {
+      display: inline;
+      vertical-align: middle;
+    }
+  }
+}
+
+.industries__img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 398px;
+
+  & img {
+    width: 100%;
+    height: 398px;
+    object-fit: cover;
+  }
+
+  @media (min-width: 1441px) {
+    & img {
+      object-fit: fill;
+      height: auto;
+    }
+  }
+
+  @include vp--767 {
+    height: 209px;
+
+    & img {
+      height: 209px;
+      object-fit: cover;
+      object-position: right -124px bottom 0;
+    }
+  }
+}

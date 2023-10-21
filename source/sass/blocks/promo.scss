@@ -1,0 +1,123 @@
+.promo {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 232px 0 164px 0;
+
+  @include vp--1023 {
+    padding: 209px 0 110px 0;
+  }
+
+  @include vp--767 {
+    padding: var(--static-padding-vh) 0 32px 0;
+    height: calc(var(--static-vh) * 100);
+  }
+}
+
+.promo__container {
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include vp--767 {
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+.promo__map {
+  position: absolute;
+  top: -85px;
+  right: 14px;
+
+  & img {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media (max-width: 1265px) {
+    right: 24px;
+  }
+
+  @include vp--1023 {
+    right: 30px;
+
+    & img {
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  @include vp--767 {
+    display: none;
+  }
+}
+
+.promo__title {
+  font-weight: 700;
+  color: $color-default-white;
+  font-size: 60px;
+  line-height: 68.5px;
+  margin: 0 0 19px 0;
+  max-width: 588px;
+
+  @media (max-width: 1082px) {
+    font-size: 53px;
+    max-width: 519px;
+  }
+
+  @include vp--1023 {
+    font-size: 39px;
+    line-height: 48px;
+    max-width: 382px;
+  }
+
+  @include vp--767 {
+    font-size: 28px;
+    line-height: 30px;
+    margin-bottom: 8px;
+    max-width: none;
+  }
+}
+
+.promo__city {
+  font-size: 71px;
+  line-height: 81px;
+  text-transform: uppercase;
+
+  @media (max-width: 1082px) {
+    font-size: 64px;
+    max-width: 519px;
+  }
+
+  @include vp--1023 {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  @include vp--767 {
+    font-size: 36px;
+    line-height: 30px;
+  }
+}
+
+.promo__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: $color-default-white;
+  margin: 0 0 135px 0;
+  max-width: 588px;
+
+  @include vp--1023 {
+    max-width: 382px;
+  }
+
+  @include vp--767 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    max-width: none;
+  }
+}

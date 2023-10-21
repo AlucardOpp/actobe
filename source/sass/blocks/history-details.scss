@@ -1,0 +1,54 @@
+.history-details {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 84px;
+
+  @include vp--767 {
+    max-width: 500px;
+    padding: 0 3px;
+
+    .title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  &__region {
+    margin: 12px 0 20px;
+
+    font-size: 15px;
+    line-height: 20px;
+    color: $color-storm-grey;
+
+    @include vp--767 {
+      margin: 7px 0 18px;
+
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin-top: 3px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 38px;
+    color: $color-endeavour;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    svg {
+      margin-right: 12px;
+    }
+  }
+}

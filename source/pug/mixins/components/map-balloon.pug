@@ -1,0 +1,55 @@
+mixin map-balloon(data)
+  if (attributes.class)
+    .map-balloon(class!=`${attributes.class}`)
+      .map-balloon__header
+        p.map-balloon__title!=data.title
+        button(class="map-balloon__close" type="button" aria-label="Закрыть попап")
+      ul.map-balloon__list
+        li.map-balloon__item
+          p.map-balloon__info!="Вид деятельности:"
+          p.map-balloon__text!=data.activity
+        li.map-balloon__item
+          p.map-balloon__info!="Адрес:"
+          p.map-balloon__text!=data.address
+        li.map-balloon__item
+          p.map-balloon__info!="Телефон:"
+          a(href=`tel:${data.telMask}` aria-label=`Позвонить на номер ${data.telMask}`).map-balloon__text!=data.tel
+        li.map-balloon__item
+          p.map-balloon__info!="Факс:"
+          a(href=`tel:${data.faxMask}` aria-label=`Позвонить на номер ${data.faxMask}`).map-balloon__text!=data.fax
+        li.map-balloon__item
+            p.map-balloon__info!="E-mail:"
+            ul.map-balloon__emails
+              - for(var i = 0; i < data.emails.length; i++)
+                li.map-balloon__email
+                  if ((data.emails.length - 1) === i)
+                    a(href=`mailto:${data.emails[i]}` aria-label=`Написать на почту ${data.emails[i]}`).map-balloon__text #{data.emails[i]}
+                  else
+                    a(href=`mailto:${data.emails[i]}` aria-label=`Написать на почту ${data.emails[i]}`).map-balloon__text #{data.emails[i]},&nbsp;
+  else
+    .map-balloon
+      .map-balloon__header
+        p.map-balloon__title!=data.title
+        button(class="map-balloon__close" type="button" aria-label="Закрыть попап")
+      ul.map-balloon__list
+        li.map-balloon__item
+          p.map-balloon__info!="Вид деятельности:"
+          p.map-balloon__text!=data.activity
+        li.map-balloon__item
+          p.map-balloon__info!="Адрес:"
+          p.map-balloon__text!=data.address
+        li.map-balloon__item
+          p.map-balloon__info!="Телефон:"
+          a(href=`tel:${data.telMask}` aria-label=`Позвонить на номер ${data.telMask}`).map-balloon__text!=data.tel
+        li.map-balloon__item
+          p.map-balloon__info!="Факс:"
+          a(href=`tel:${data.faxMask}` aria-label=`Позвонить на номер ${data.faxMask}`).map-balloon__text!=data.fax
+        li.map-balloon__item
+            p.map-balloon__info!="E-mail:"
+            ul.map-balloon__emails
+              - for(var i = 0; i < data.emails.length; i++)
+                li.map-balloon__email
+                  if ((data.emails.length - 1) === i)
+                    a(href=`mailto:${data.emails[i]}` aria-label=`Написать на почту ${data.emails[i]}`).map-balloon__text #{data.emails[i]}
+                  else
+                    a(href=`mailto:${data.emails[i]}` aria-label=`Написать на почту ${data.emails[i]}`).map-balloon__text #{data.emails[i]},&nbsp;

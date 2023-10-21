@@ -1,0 +1,91 @@
+.slider-cards {
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  list-style: none;
+  padding: 69px 0 0 0;
+  min-height: 100%;
+
+  @include vp--767 {
+    overflow: visible;
+  }
+}
+
+.slider-cards__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  transform: translate3d(0, 0, 0);
+}
+
+.slider-cards__slide {
+  flex-shrink: 0;
+  transition-property: transform;
+  width: 100%;
+  height: 397px;
+  position: relative;
+  background-color: $color-default-white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include vp--767 {
+    height: auto;
+  }
+}
+
+.slider-cards__container {
+  position: relative;
+}
+
+.slider-cards__button {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  top: -69px;
+  transition: opacity $trans--300;
+
+  &:active {
+    opacity: 0.7;
+
+    & .icon-arrow--right svg {
+      transform: translateX(5px);
+    }
+
+    & .icon-arrow--left svg {
+      transform: translateX(-5px);
+    }
+  }
+
+  & .icon-arrow {
+    border: none;
+  }
+
+  &--prev {
+    right: 51px;
+  }
+
+  &--next {
+    right: 0;
+  }
+
+  @include vp--767 {
+    -webkit-tap-highlight-color: transparent;
+    top: -71px;
+
+    &--prev {
+      right: 53px;
+    }
+
+    &--next {
+      right: 2px;
+    }
+  }
+}

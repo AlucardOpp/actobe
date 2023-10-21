@@ -1,0 +1,19 @@
+mixin card-history(item)
+  a.card-project(href=item.href)
+    +card-historyInner(item)
+
+mixin card-historyInner(item)
+  .card-project__photo(data-aos="fade-up")
+    +img("content", item.image.name, "png", item.image.width, item.image.height, item.image.alt)
+  .card-project__details(data-aos="fade-up" data-aos-delay="200")
+    h2.card-project__title=item.title
+    if(item.region)
+      p.card-project__region=item.region
+    .card-project__info
+      p.card-project__text=item.text
+      if(item.list)
+        ul.card-project__list
+          each line in item.list
+            li.card-project__item=line
+  if(item.href)
+    +iconArrow("right", "yes", "blue", "animate").card-project__link

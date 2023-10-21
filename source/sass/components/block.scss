@@ -1,0 +1,59 @@
+.block {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  background-color: $color-wedgewood;
+
+  & .slider-cards {
+    width: calc(100% + 215px);
+    max-width: 906px;
+  }
+
+  & .slider-cards__container {
+    width: calc(100% - 51.65%);
+  }
+
+  @include vp--1023 {
+    & .slider-cards {
+      width: calc(100% + 319px);
+    }
+
+    & .slider-cards__container {
+      width: calc(100% - 51.2%);
+    }
+  }
+
+  @include vp--767 {
+    grid-template-columns: 1fr;
+
+    & .slider-cards,
+    & .slider-cards__container {
+      width: auto;
+    }
+  }
+}
+
+.block__container {
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+}
+
+.block__content {
+  position: relative;
+  overflow: hidden;
+}
+
+.block__img {
+  width: 100%;
+  height: 100%;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.block__slider {
+  position: relative;
+}

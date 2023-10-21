@@ -1,0 +1,11 @@
+mixin sliderFrame(data)
+  .slider-frame
+    .slider-frame__wrapper
+      each item in data
+        .slider-frame__slide(data-aos="fade-up")
+          +picture("content", item.img, "png", "919", "491", "Слайд преимуществ")
+    button.slider-frame__button.slider-frame__button--prev
+      +iconArrow("left", "yes", "grey")
+    button.slider-frame__button.slider-frame__button--next
+      +iconArrow("right", "yes", "grey")
+    +pagination-slider("frame").slider-frame__pagination

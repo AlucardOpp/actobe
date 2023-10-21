@@ -1,0 +1,8 @@
+mixin card-news(item, number)
+  article.card-news(data-aos="fade-up" data-aos-delay=`${50 + [number] * 50}`)
+    a(class="card-news__link" href=item.href)
+      .card-news__img
+        +picture("content", item.img, "jpg", 279, 151, item.title)
+      time.card-news__date(datetime=`${item.datetime}`)!= item.date
+      h3.card-news__name!= item.title
+      p.card-news__content!= item.news

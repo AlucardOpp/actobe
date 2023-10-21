@@ -1,0 +1,137 @@
+.custom-select {
+  position: relative;
+
+  select {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding: 0 30px 0 20px;
+    background-color: rgba($color-default-white, 0.5);
+    border: none;
+    border-radius: 180px;
+    outline: none;
+    cursor: pointer;
+    transition: opacity $trans--300;
+
+    &--white {
+      background-color: $color-default-white;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid $color-rhino-3;
+      border-right: 1px solid $color-rhino-3;
+      transform: rotate(135deg);
+      transition: transform $trans--300, top $trans--100;
+      right: 17px;
+      top: 15px;
+    }
+
+    @include vp--767 {
+      padding-left: 30px;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 42px;
+    z-index: 2;
+    border-radius: 20px;
+    width: 100%;
+    margin: 0;
+    padding: 22px 30px;
+    list-style: none;
+    background-color: $color-default-white;
+    border: 1px solid $color-solitude-3;
+    box-shadow: 0 2px 6px $color-slate-grey-2;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility $trans--300, opacity $trans--300;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 21px;
+
+    @include vp--767 {
+      row-gap: 25px;
+    }
+  }
+
+  &__item {
+    outline: none;
+    cursor: pointer;
+    transition: color $trans--300;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $color-manatee;
+
+    &:hover {
+      color: $color-wedgewood;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    display: block;
+  }
+
+  &__text {
+    flex-shrink: 0;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: $color-rhino-2;
+
+    &--nav {
+      font-size: 14px;
+      line-height: 40px;
+      font-weight: 700;
+      color: $color-wedgewood;
+    }
+  }
+
+  &.is-open {
+    .custom-select__list {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .custom-select__icon {
+      transform: rotate(180deg);
+    }
+
+    .custom-select__label {
+      opacity: 0;
+    }
+
+    .custom-select__button::after {
+      top: 18px;
+      transform: rotate(315deg);
+    }
+  }
+}

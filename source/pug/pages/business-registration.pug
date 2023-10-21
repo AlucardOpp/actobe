@@ -1,0 +1,63 @@
+extends ../base/layout
+
+block variables
+  - const title = "Регистрация бизнеса"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "business-registration"
+
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(formActivityCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+        h1.inner-page__title.inner-page__title--blue.inner-page__title--mobile Регистрация бизнеса
+        .inner-page__wrapper.inner-page__wrapper--columns
+          +side-nav(formActivityNav, "ИП")
+          .inner-page__content
+            section.inner-section.inner-section--border(id="individual-entrepreneur")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=businessContent.mainTitle1
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text-big!=businessContent.contentSubtitle1
+              ol(data-aos="fade-up" data-aos-once="false").inner-section__list-numbers.inner-section__list-numbers--gold
+                each item in entrepreneurContent.list
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__numbers-item
+                    p.inner-section__numbers-text!=item.text
+                    .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                      +picture2(
+                        item.img.path,
+                        item.img.image,
+                        item.img.format,
+                        item.img.width,
+                        item.img.height,
+                        item.img.altText, 767)
+            section.inner-section(id="legal-entity")
+              h2.inner-section__title.inner-section__title--legal-entity(data-aos="fade-up" data-aos-once="false")!=businessContent.mainTitle2
+              p.inner-section__text(data-aos="fade-up" data-aos-once="false")!=businessContent.contentSubtitle2
+              p.inner-section__text(data-aos="fade-up" data-aos-once="false")!=businessContent.contentSubtitle3
+              .inner-section
+                h3.inner-section__text-big.inner-section__text-big--blue(data-aos="fade-up" data-aos-once="false")!=businessContent.contentSubtitle4
+                .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                  +picture2("content", "business-registration-slide3", "png", 822, 430, "Регистрация юр.лица - первый способ", 767)
+                .inner-section__img.inner-section__img--mb14(data-aos="fade-up" data-aos-once="false")
+                  +picture2("content", "business-registration-slide4", "png", 822, 947, "Регистрация юр.лица - второй способ", 767)
+                p.inner-section__text-link(data-aos="fade-up" data-aos-once="false")=webPortal.text
+                  a.inner-section__link.inner-section__link--text(href="#")=webPortal.link
+                a.inner-section__link.inner-section__link--small.link(href="#" data-aos="fade-up" data-aos-once="false")=businessContent.link1
+                  +svg(21, 21, "icon-source")
+                a.inner-section__link.inner-section__link--small.link(href="#" data-aos="fade-up" data-aos-once="false")=businessContent.link2
+                  +svg(21, 21, "icon-source")
+                p.inner-section__text.inner-section__text--smallest(data-aos="fade-up" data-aos-once="false")!=businessContent.span
+                .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+                  +picture2("content", "business-registration-slide5", "png", 822, 556, "Регистрация юр.лица - второй способ", 767)
+
+block modals
+  +modal("modal--picture", "zoom")(data-modal="picture")
+    .modal__img-wrapper
+      .modal__img-container
+        .zoom__item
+          img(src="#")
+

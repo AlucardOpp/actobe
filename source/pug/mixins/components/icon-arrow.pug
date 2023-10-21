@@ -1,0 +1,63 @@
+mixin iconArrow(direction, fill, color, animate)
+  if (direction === "left")
+    if (fill === "yes")
+      if (animate === "animate")
+        if (attributes.class)
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--fill icon-arrow--left icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-left", "17", "12")
+        else
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--fill icon-arrow--left icon-arrow--${color}`)
+            +icon("button-arrow-left", "17", "12")
+      else
+        if (attributes.class)
+          span(class=`icon-arrow icon-arrow--fill icon-arrow--left icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-left", "17", "12")
+        else
+          span(class=`icon-arrow icon-arrow--fill icon-arrow--left icon-arrow--${color}`)
+            +icon("button-arrow-left", "17", "12")
+    else
+      if (animate === "animate")
+        if (attributes.class)
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--left icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-left", "17", "12")
+        else
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--left icon-arrow--${color}`)
+            +icon("button-arrow-left", "17", "12")
+      else
+        if (attributes.class)
+          span(class=`icon-arrow icon-arrow--left icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-left", "17", "12")
+        else
+          span(class=`icon-arrow icon-arrow--left icon-arrow--${color}`)
+            +icon("button-arrow-left", "17", "12")
+  else
+    if (fill === "yes")
+      if (animate === "animate")
+        if (attributes.class)
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--right icon-arrow--fill icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-right", "17", "12")
+        else
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--right icon-arrow--fill icon-arrow--${color}`)
+            +icon("button-arrow-right", "17", "12")
+      else
+        if (attributes.class)
+          span(class=`icon-arrow icon-arrow--right icon-arrow--fill icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-right", "17", "12")
+        else
+          span(class=`icon-arrow icon-arrow--right icon-arrow--fill icon-arrow--${color}`)
+            +icon("button-arrow-right", "17", "12")
+    else
+      if (animate === "animate")
+        if (attributes.class)
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--right icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-right", "17", "12")
+        else
+          span(data-aos="fade-up" class=`icon-arrow icon-arrow--right icon-arrow--${color}`)
+            +icon("button-arrow-right", "17", "12")
+      else
+        if (attributes.class)
+          span(class=`icon-arrow icon-arrow--right icon-arrow--${color} ${attributes.class}`)
+            +icon("button-arrow-right", "17", "12")
+        else
+          span( class=`icon-arrow icon-arrow--right icon-arrow--${color}`)
+            +icon("button-arrow-right", "17", "12")

@@ -1,0 +1,14 @@
+mixin socials(vertical)
+  if (vertical === "vertical")
+    ul.socials.socials--vertical
+      each item in socials
+        li.socials__item
+          a(class="socials__link" href!=item.href aria-label=`Перейти к ${item.name}`)
+            +icon(item.svg, 22, 22)
+            span.socials__name!=item.name
+  else
+    ul.socials
+      each item in socials
+        li.socials__item
+          a(class="socials__link" href!=item.href aria-label=`Перейти к ${item.name}`)
+            +icon(item.svg, 22, 22)

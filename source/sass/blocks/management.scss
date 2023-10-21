@@ -1,0 +1,127 @@
+.management__list,
+.management__contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.management__list {
+  margin-top: -18px;
+
+  @include vp--767 {
+    margin-top: -19px;
+  }
+}
+
+.management__name {
+  max-width: 384px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  color: $color-wedgewood;
+  transition: opacity $trans--300;
+  user-select: none;
+
+  @include vp--1023 {
+    font-size: 12px;
+  }
+
+  @include vp--767 {
+    max-width: calc(100% - 5px);
+    font-size: 13px;
+    margin-bottom: 7px;
+  }
+}
+
+.management__contacts {
+  margin-left: auto;
+
+  @include vp--767 {
+    justify-self: start;
+    display: grid;
+    margin-left: 0;
+    grid-template-columns: 1fr;
+  }
+}
+
+.management__contact {
+  @include vp--767 {
+    &:not(:first-child) {
+      margin-top: -2px;
+    }
+  }
+}
+
+.management__item {
+  display: grid;
+  grid-template-columns: 1.33fr 1fr;
+  align-items: center;
+  padding-top: 18px;
+  margin-bottom: 20px;
+  column-gap: 10px;
+  border-top: 1px solid $color-echo-blue;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include vp--767 {
+    grid-template-columns: 1fr;
+    margin-bottom: 18px;
+
+    @include vp--767 {
+      &:not(:first-child) .management__name {
+        line-height: 21px;
+        margin-bottom: 4px;
+      }
+
+      &:not(:first-child) {
+        margin-bottom: 17px;
+      }
+    }
+  }
+}
+
+.management__info-name {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 22px;
+  color: $color-midnight-express;
+  margin-right: 4px;
+  width: 44px;
+  white-space: nowrap;
+
+  @include vp--1023 {
+    font-size: 12px;
+  }
+
+  @include vp--767 {
+    white-space: normal;
+    font-size: 13px;
+  }
+}
+
+.management__info {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 22px;
+  color: $color-storm-grey;
+  transition: opacity $trans--300;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include vp--1023 {
+    font-size: 12px;
+  }
+
+  @include vp--767 {
+    font-size: 13px;
+  }
+}

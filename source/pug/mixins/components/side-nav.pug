@@ -1,0 +1,13 @@
+mixin side-nav(data, button)
+  .side-nav
+    .side-nav__container
+      nav.side-nav__nav(data-aos="fade-up")
+        button(class="side-nav__button" type="button")!=button
+        ul.side-nav__list
+          each item, index in data
+            if (index === 0)
+              li.side-nav__item
+                a(href=`#${item.href}` class="side-nav__link side-nav__link--active" data-short-name= item.shortName ? `${item.shortName}` : null aria-label=`Перейти к блоку "${item.name}"` data-navigation-link)!=item.name
+            else
+              li.side-nav__item
+                a(href=`#${item.href}` class="side-nav__link" data-short-name= item.shortName ? `${item.shortName}` : null aria-label=`Перейти к блоку "${item.name}"` data-navigation-link)!=item.name

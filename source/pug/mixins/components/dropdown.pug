@@ -1,0 +1,7 @@
+mixin dropdown()
+  .dropdown(tabIndex="0")
+    button.dropdown__button(tabIndex="-1")!=dropdownFirst
+    ul.dropdown__list
+      each item in dropdown
+        li.dropdown__item
+          a(class="dropdown__link" href!=item.href)!=item.language

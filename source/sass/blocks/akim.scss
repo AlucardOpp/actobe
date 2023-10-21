@@ -1,0 +1,200 @@
+.akim__img {
+  max-height: 749px;
+
+  @include vp--767 {
+    max-height: 779px;
+  }
+}
+
+.akim .slider-cards {
+  margin: 125px 0 41px 87px;
+  width: calc(100% + 302px);
+
+  @include vp--1023 {
+    width: calc(100% + 319px);
+    margin-left: 0;
+  }
+
+  @include vp--767 {
+    width: auto;
+    padding: 25px 0 58px 0;
+    margin: 0 auto 0 0;
+  }
+}
+
+.akim__akim-fio {
+  margin: 0 0 10px 143px;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: $color-solitude-1;
+
+  @include vp--1023 {
+    margin-left: 83px;
+  }
+
+  @include vp--767 {
+    font-size: 16px;
+    padding-left: 16px;
+    margin: 0 0 48px 0;
+  }
+}
+
+.akim__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.2px;
+  color: inherit;
+
+  &:not(:last-of-type) {
+    margin-bottom: 21px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 56px;
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  @include vp--767 {
+    font-size: 14px;
+    line-height: 19px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 19px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 75px;
+    }
+  }
+}
+
+.akim__slider-wrapper {
+  @include vp--767 {
+    margin-bottom: 23px;
+  }
+}
+
+.akim__content {
+  margin: 0 0 10px 0;
+
+  @include vp--1023 {
+    margin: 0;
+  }
+}
+
+.akim__slider {
+  @include vp--767 {
+    & .slider-cards__container {
+      display: none;
+    }
+  }
+}
+
+.akim__slide-title {
+  margin: 0 0 26px 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  color: $color-steel-blue;
+
+  @include vp--1023 {
+    top: 20px;
+    font-size: 16px;
+    line-height: 29px;
+  }
+
+  @include vp--767 {
+    display: none;
+  }
+}
+
+.akim__slide-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-storm-grey;
+  z-index: 1;
+
+  p {
+    margin: 0 0 28px 0;
+    padding: 0;
+  }
+
+  p:last-child {
+    margin: 0;
+  }
+
+  &--only {
+    margin-top: 25px;
+  }
+
+  @include vp--1023 {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  @include vp--767 {
+    margin: 0;
+  }
+}
+
+.akim__slide {
+  padding: 38px 57px;
+
+  @media (max-width: 1307px) {
+    padding: 24px 40px;
+  }
+
+  @include vp--1023 {
+    padding: 21px 31px;
+  }
+
+  @include vp--767 {
+    min-width: auto;
+    padding: 31px 20px 45px 24px;
+  }
+
+  &--quote {
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 42px;
+      height: 34px;
+      background-image: url("../img/content/quote.png");
+      opacity: 0.5;
+    }
+
+    &::before {
+      top: 70px;
+      left: 40px;
+
+      @include vp--1023 {
+        left: 10px;
+      }
+
+      @include vp--767 {
+        top: 12px;
+        left: 10px;
+      }
+    }
+
+    &::after {
+      right: 25px;
+      bottom: 40px;
+      transform: rotate(180deg);
+
+      @include vp--1023 {
+        bottom: 25px;
+        right: 15px;
+      }
+    }
+  }
+}

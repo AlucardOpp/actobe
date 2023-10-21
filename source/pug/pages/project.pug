@@ -1,0 +1,20 @@
+extends ../base/layout
+
+block variables
+  - const title = "Подробно о проекте — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "project"
+
+block main
+  main
+    section.project.inner-page.inner-page--small-margin
+      .container.container--widest
+        +breadcrumbs(project.crumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--small-margin
+      .container.container--widest
+        .project__card(data-aos="fade-up")
+          +card-project(project.card,"h1")
+          +table(project.table)

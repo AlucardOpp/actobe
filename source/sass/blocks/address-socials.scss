@@ -1,0 +1,45 @@
+.address-socials {
+  display: grid;
+  grid-template-columns: 1.34fr 1fr;
+  column-gap: 10px;
+
+  @include vp--767 {
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
+}
+
+.address-socials__contacts {
+  max-width: 378px;
+
+  @include vp--767 {
+    max-width: none;
+  }
+}
+
+.address-socials__socials {
+  max-width: 166px;
+  justify-self: end;
+
+  @include vp--767 {
+    max-width: none;
+    justify-self: start;
+  }
+}
+
+.address-socials__address {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+  color: $color-default-black;
+
+  @include vp--1023 {
+    font-size: 12px;
+  }
+
+  @include vp--767 {
+    font-size: 14px;
+    line-height: 25px;
+  }
+}

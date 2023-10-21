@@ -1,0 +1,25 @@
+.title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 41px;
+  color: inherit;
+  margin: 0;
+
+  &--blue {
+    color: $color-wedgewood;
+  }
+
+  @include vp--1023 {
+    font-size: 27px;
+    line-height: 33px;
+  }
+
+  @include vp--767 {
+    font-size: 20px;
+    line-height: 27px;
+
+    &--regular {
+      font-weight: 400;
+    }
+  }
+}

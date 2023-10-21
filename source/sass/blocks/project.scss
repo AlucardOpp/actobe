@@ -1,0 +1,49 @@
+.project {
+  background-color: $color-alice-blue;
+  padding-bottom: 76px;
+
+  .card-project {
+    margin-bottom: 32px;
+
+    @include vp--767 {
+      margin-bottom: 6px;
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .table {
+    margin-left: 33px;
+    margin-right: 33px;
+    padding-bottom: 38px;
+
+    @include vp--1023 {
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+
+    @include vp--767 {
+      margin: 15px;
+    }
+  }
+}
+
+.project__card {
+  max-width: 1110px;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  border-radius: 8px;
+  background-color: $color-default-white;
+
+  @include vp--1023 {
+    & .card-project {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.project__wrapper {
+  margin-top: 56px;
+}

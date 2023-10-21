@@ -1,0 +1,12 @@
+mixin sliderBackground(data)
+  .slider-background
+    .slider-background__wrapper
+      each item in data
+        .slider-background__slide
+          +picture("content", item.img, "jpg", "1442", "810", "Фоновое изображение")
+    .slider-background__buttons
+      button.slider-background__button.slider-background__button--prev
+        +iconArrow("left", "yes", "grey")
+      button.slider-background__button.slider-background__button--next
+        +iconArrow("right", "yes", "grey")
+    +pagination-slider("background").slider-background__pagination

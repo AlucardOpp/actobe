@@ -1,0 +1,15 @@
+mixin contact-person(item)
+  .contact-person
+    .contact-person__photo
+      +picture("content", `contact-person-${item.photo}`, "png", 78, 78, item.person)
+    .contact-person__container
+      .contact-person__text-content
+        p.contact-person__post!=item.post
+        p.contact-person__person!=item.person
+      ul.contact-person__contacts
+        li.contact-person__item
+          span.contact-person__info-name!="Тел:"
+          a(aria-label=`Позвонить на номер ${item.hrefTel}` href=`tel:+${item.hrefTel}`).contact-person__info!=item.tel
+        li.contact-person__item
+          span.contact-person__info-name!="E-mail:"
+          a(aria-label=`Написать на почту ${item.email}` href=`mailto:+${item.email}`).contact-person__info!=item.email

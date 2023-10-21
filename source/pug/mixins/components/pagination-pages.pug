@@ -1,0 +1,13 @@
+mixin pagination-pages(data)
+  .pagination-pages
+    ul.pagination-pages__list
+      each page, index in data
+        li.pagination-pages__item
+          if (index === 0)
+            button.pagination-pages__button.is-active #{page}
+          else if (page === ". . .")
+            button.pagination-pages__button.no-padding #{page}
+          else if (index === 3)
+            button.pagination-pages__button.hidden #{page}
+          else
+            button.pagination-pages__button #{page}

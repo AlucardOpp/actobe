@@ -1,0 +1,54 @@
+.history {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  grid-row-gap: 28px;
+  grid-template-columns: 1fr;
+
+  @include vp--1023 {
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include vp--767 {
+    grid-row-gap: 14px;
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    position: relative;
+
+    width: 100%;
+    margin: 0 auto;
+
+    background-color: $color-default-white;
+    border-radius: 8px;
+
+
+    .card-project {
+      @include vp--767 {
+        padding: 15px 15px 67px;
+      }
+    }
+
+    .card-project__details {
+      @include vp--767 {
+        margin-top: 15px;
+      }
+    }
+
+    .card-project__link {
+      bottom: 29px;
+    }
+
+    .card-project__region {
+      padding-bottom: 0;
+
+      border: none;
+    }
+  }
+}

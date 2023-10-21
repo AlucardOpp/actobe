@@ -1,0 +1,139 @@
+.inner-page {
+  position: relative;
+
+  padding: 19px 0 89px 0;
+
+  background-color: $color-alice-blue;
+
+  &--margin {
+    padding-top: 0;
+    padding-bottom: 110px;
+  }
+
+  @include vp--1023 {
+    padding: 13px 0 62px 0;
+  }
+
+  @include vp--767 {
+    padding: 63px 0 56px 0;
+
+    &--margin {
+      padding: 46px 0 35px 0;
+    }
+
+    &--big-margin {
+      padding: 93px 0 79px 0;
+    }
+
+    &--middle-margin {
+      padding: 48px 0 50px 0;
+    }
+
+    &--small-margin {
+      padding: 19px 0 50px 0;
+    }
+
+    &--business-registration {
+      padding-top: 42px;
+    }
+  }
+}
+
+.inner-page__breadcrumbs {
+  &--big-margin {
+    margin-bottom: 79px;
+  }
+
+  &--middle-margin {
+    margin-bottom: 42px;
+  }
+
+  &--small-margin {
+    margin-bottom: 26px;
+  }
+}
+
+.inner-page__title {
+  margin: 0 0 45px 0;
+
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: $color-default-white;
+
+  @include vp--1023 {
+    margin-bottom: 39px;
+  }
+
+  @include vp--767 {
+    margin-bottom: 33px;
+
+    font-size: 28px;
+    line-height: 38px;
+
+    &--fixed {
+      margin-bottom: 93px;
+    }
+  }
+
+  &--big-margin {
+    margin-bottom: 79px;
+  }
+
+  &--blue {
+    color: $color-wedgewood;
+  }
+
+  &--mobile {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    clip: rect(0 0 0 0);
+
+    @include vp--767 {
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      margin-bottom: 22px;
+
+      font-size: 24px;
+      line-height: 33px;
+    }
+  }
+
+  &--ml {
+    margin-left: 25px;
+
+    @include vp--767 {
+      margin-left: 0;
+    }
+  }
+}
+
+.inner-page__wrapper {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  @include vp--1023 {
+    &--columns {
+      column-gap: 23px;
+    }
+  }
+
+  @include vp--767 {
+    &--columns {
+      grid-template-columns: 100%;
+    }
+  }
+
+  &--columns {
+    column-gap: 40px;
+
+    grid-template-columns: 1.4fr 4fr;
+  }
+}

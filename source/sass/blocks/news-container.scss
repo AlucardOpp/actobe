@@ -1,0 +1,10 @@
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 297px));
+  column-gap: 30px;
+  row-gap: 30px;
+
+  @include vp--767 {
+    display: block;
+  }
+}

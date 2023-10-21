@@ -1,0 +1,32 @@
+.icon-arrow {
+  transition: background-color $trans--300;
+
+  & svg {
+    width: 17px;
+    height: 12px;
+    transition: stroke $trans--300, transform $trans--300;
+  }
+
+  &--fill {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    display: flex;
+    border: 1px solid $color-heather;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-default-white;
+  }
+
+  &--grey svg {
+    stroke: $color-heather;
+  }
+
+  &--blue svg {
+    stroke: $color-steel-blue;
+  }
+
+  &--dark-grey svg {
+    stroke: $color-manatee;
+  }
+}

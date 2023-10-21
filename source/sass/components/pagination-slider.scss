@@ -1,0 +1,33 @@
+.pagination-slider {
+  display: none;
+  width: fit-content;
+  flex-wrap: wrap;
+  z-index: 1;
+  margin: 0 auto;
+
+  @include vp--767 {
+    display: flex;
+  }
+}
+
+.pagination-slider__bullet {
+  width: 6px;
+  height: 6px;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid $color-bali-hai;
+  border-radius: 50%;
+  margin-right: 7px;
+
+  @include expand-interactive-area(400%, 400%);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--active {
+    background-color: $color-bali-hai;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,89 @@
+extends ../base/layout
+
+block variables
+  - const title = "АКТОБЕ"
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "main"
+
+block main
+  main
+    section.promo
+      .container.container--wide.promo__container
+        h1.promo__title #[span.promo__city!="Актобе — <br>"] город инвестиций
+        p.promo__text!= "Крупный промышленный регион Казахстана"
+        +factoids(promoFactoids)
+        .promo__map
+          img(src="img/content/promo-map.gif" width="400" height="400" alt="Карта Актобе")
+      +sliderBackground(promoBackground)
+    .wrapper__main-container.container.container--wide
+      section.advantages.section
+        .container
+          .section__header
+            h2.title.title--blue(data-aos="fade-up")!="Преимущества региона"
+            p.section__text(data-aos="fade-up" data-aos-delay=200)!="Актюбинская область является одной из динамично развивающихся областей Республики Казахстан"
+          +sliderFrame(advantages).advantages
+      section.investor.section.section--no-padding-top
+        .container
+          .section__header
+            h2.title.title--blue!="Инвестору"
+          ol.investor__list(data-aos="fade-up")
+            each item, index in investor
+              li(class=`investor__item investor__item--${item.modifier}` data-aos="fade-up" data-aos-delay=`${50 + [index] * 150}`)
+                a(class="investor__link" href!=item.href)
+                  h3.investor__name!= item.title
+                  +iconArrow("right", "yes", "blue").investor__arrow
+                  .investor__img
+                    img(src=`img/svg/${item.img}.svg` width=item.width height=item.height alt=item.title)
+    section.proposals.block
+      .block__information
+        .container.block__container
+          .proposals__text-content(data-aos="fade-up")
+            h2.proposals__title.title.title--regular!="Инвестиционные предложения"
+            .proposals__text
+              p!="Область является стратегическим индустриально-аграрным регионом страны. Удельный вес валового регионального продукта области за 2020 год по республике составил 4,2%."
+              p!="Промышленность является основным драйвером экономики, формирующим порядка 40% валового регионального продукта области."
+            +link("Все инвестиционные предложения", "right", "yes", "grey")(class="proposals__link link--fill" href="#")
+      .block__content
+        .block__img.proposals__img
+          +picture("content", "proposals-bg", "jpg", 690, 751, "Изображение человека в строительной каске")
+        .proposals__slider.block__slider
+          .container.block__container
+            +sliderCards(proposals, "proposals")
+    section.industries.section
+      .container
+        .section__header
+          h2.title.title--blue(data-aos="fade-up")!="Приоритетные отрасли"
+          p.section__text(data-aos="fade-up" data-aos-delay="200")!="Адресное привлечение инвестиций будет направлено на привлечение в Актюбинскую область большего потока инвестиций, ориентированных на повышение эффективности."
+        ul.industries__list
+          - for (var i = 0; i < industries.length; i++)
+              li.industries__item(class=`industries__item--${industries[i].size}` data-aos="fade-up" data-aos-delay=`${50 + [i] * 150}`)
+                a(class=`industries__link industries__link--${industries[i].modifier}` href!=industries[i].href)
+                  +icon(industries[i].svg, 52, 52).industries__svg
+                  p.industries__name!=industries[i].title
+      .industries__img
+          +picture("content", "industries-bg", "png", 1440, 398, "Фоновое изображение")
+    section.akim.block
+      .block__img.akim__img
+        +picture("content", "akim", "jpg", 739, 749, "Аким Актюбинской области")
+      .akim__content.block__content
+        .akim__slider.block__slider
+          .container.block__container
+            +sliderCards(akim, "akim")
+        p.akim__akim-fio!=akimFio
+    section.news.section
+      .container
+        .section__header.news__header
+          h2.title.title--blue(data-aos="fade-up")!="Новости"
+          .news__arrow(data-aos="fade-up" data-aos-delay="200")
+            +link("<span class='news__all'>Все новости</span>", "right", "yes", "grey")(class="news__link link--fill" href=newsAll)
+        .news-container
+          - for (var i = 0; i < news.length; i++)
+              +card-news(news[i], [i])
+    section.future
+      h2.visually-hidden Актобе — место для ваших будущих историй успеха
+      p.future__text(data-aos="fade-up") Актобе — место для ваших будущих<br> историй успеха
+      +picture("content", "future-background", "jpg", "1442", "810", "Фоновое изображение")

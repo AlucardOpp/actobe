@@ -1,0 +1,50 @@
+extends ../base/layout
+
+block variables
+  - const title = "Преимущества — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "region-advantages"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin.region-advantages
+      .container.container--widest
+        +breadcrumbs(regionAdvantagesCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+        .inner-page__content
+          .inner-section
+            h1(data-aos="fade-up" data-aos-once="false").inner-page__title.inner-page__title--blue!="Преимущества Актюбинской области"
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text.inner-section__text-big--bold Актюбинская область является одной из динамично развивающихся областей Республики Казахстан, бурное развитие которой связано с реализацией масштабных нефтегазовых, горнодобывающих и других крупных&nbsp;проектов.
+            .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+              +picture2("content", "advantage-1", "png", 821, 439, "Минерально-сырьевые ресурсы", 767)
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Кроме того область является стратегическим индустриально-аграрным регионом страны. Удельный вес валового регионального продукта области за 2020 год по республике составил 4,2%.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Промышленность является основным драйвером экономики, формирующим порядка 40% валового регионального продукта области.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Регион обладает значительным потенциалом для развития металлургической, химической и нефтегазовой отраслей, в недрах области имеются залежи практически всех полезных ископаемых таблицы Менделеева. К примеру, область занимает 2 место в мире по запасам хромовых руд, 3 место в Казахстане по запасам углеводородного сырья и медных руд.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Область является важным стратегическим узлом благодаря развитой транспортной развязке и транзитной специализации.
+            .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+              +picture2("content", "advantage-2", "png", 821, 546, "Транспортная инфраструктура", 767)
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Пересекаются несколько направлений авиа- и автомобильных магистралей, которые связывают Среднюю Азию с Европейской частью России.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text В непосредственной близости дислоцированы стабильные рынки сбыта&nbsp;–&nbsp;в радиусе 900 километров находятся 7 крупных городов Российской Федерации и Республики Казахстан, объем рынка составляет более 12 миллионов человек.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Уникальное географическое расположение на пересечении авиационных, железнодорожных, автомобильных магистралей и вблизи от акватории Каспийского моря, через большинство областей и регионов Средней Азии связываются с европейскими регионами.
+            .inner-section__img(data-aos="fade-up" data-aos-once="false")
+              +picture2("content", "advantage-3", "png", 821, 117, "Евразийский экономический союз", 767)
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text В целом в регионе сформирован мощный каркас разветвленной транспортной инфраструктуры. Транспортная инфраструктура Актюбинского региона включает в себя совокупность всех видов транспорта, за исключением водного транспорта. Ближайший порт – Каспийский порт Актау расстояние 1200 км. (Выход на Кавказ и Ближний Восток через порт Актау)
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Через Актюбинскую область пролегает трансконтинентальная автомагистраль «Западная Европа - Западный Китай», разветвленная сеть автодорог выводит на юг Республики, в северный Казахстан, приволжский регион России, на международные трассы.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Автомобильная дорога «Западная Европа-Западный Китай» является частью Нового Шелкового&nbsp;Пути.
+            .inner-section__img(data-aos="fade-up" data-aos-once="false")
+              +picture2("content", "advantage-4", "png", 821, 463, "Автомобильная дорога «Западная Европа-Западный Китай»", 767)
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Автомобильная дорога «Западная Европа-Западный Китай» является частью Нового Шелкового Пути.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Железнодорожные перевозки играют важную роль в развитии и удовлетворении потребностей населения региона в грузовых и пассажирских перевозках. Доля железнодорожного транспорта в общем грузообороте страны составляет около 50%. Через Актюбинскую область проходят следующие железнодорожные  магистрали:
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text «Новый шёлковый путь» не просто как возрождение древнего Шёлкового пути, транспортного маршрута между Востоком и Западом, но как масштабное преобразование всей торгово-экономической модели Евразии, и в первую очередь — Центральной и Средней Азии.
+            p(data-aos="fade-up" data-aos-once="false").inner-section__text Ежегодный рост транзитных контейнерных поездов по направлениям «Европа – Россия – Казахстан - Средняя Азия – Китай»
+
+block modals
+  +modal("modal--picture", "zoom")(data-modal="picture")
+    .modal__img-wrapper
+      .modal__img-container
+        .zoom__item
+          img(src="#")
+

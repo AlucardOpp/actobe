@@ -1,0 +1,23 @@
+extends ../base/layout
+
+block variables
+  - const title = "Новости — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "news-page"
+
+block main
+  main
+    section.news-page.inner-page.inner-page--big-margin
+      .news-page__background.background
+      .container.container--widest
+        +breadcrumbs(newsPageCrumbs,"white").inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+      .container
+        h1.news-page__title.inner-page__title.inner-page__title--big-margin!="Новости"
+        .news-container.news-container--all-news
+          each item, index in newsPage
+            +card-news(item, index)
+        +pagination-pages(paginationPages)

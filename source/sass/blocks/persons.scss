@@ -1,0 +1,12 @@
+.persons__list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 37px;
+
+  @include vp--767 {
+    row-gap: 35px;
+  }
+}

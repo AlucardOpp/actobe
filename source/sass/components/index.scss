@@ -1,0 +1,35 @@
+.index {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 53px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 327px;
+
+  @include vp--767 {
+    width: 300px;
+  }
+}
+
+.index__point {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 8px 16px 8px 16px;
+  width: 42px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  color: $color-kabul;
+
+  &--active {
+    color: $color-default-white;
+    background-color: $color-bermuda-grey;
+  }
+
+  &:hover:not(&--ellipsis):not(&--active) {
+    box-shadow: 0 0 2px 2px $color-bermuda-grey;
+    cursor: pointer;
+  }
+}

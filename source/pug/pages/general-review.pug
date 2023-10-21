@@ -1,0 +1,61 @@
+extends ../base/layout
+
+block variables
+  - const title = "Общий обзор — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "general-review"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(generalReviewCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+        h1.inner-page__title.inner-page__title--blue.inner-page__title--mobile!="Общий обзор"
+        .inner-page__wrapper.inner-page__wrapper--columns
+          +side-nav(generalReviewNav, "Общий обзор")
+          .inner-page__content
+
+            section.inner-section(id="review")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title.inner-section__title--no-mobile!= "Общий обзор"
+              video(class="inner-section__video" loop="loop" controls="controls" muted="muted" autoplay="autoplay" poster="img/content/general-review-poster.png" width="822" height="463" data-aos="fade-up" data-aos-once="false")
+                source(src="video/test-video.mp4" type="video/mp4")
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text!= "Актюбинская область, крупнейшая административная единица Западно-Казахстанского региона, расположенная на&nbsp;северо-западе Республики Казахстан, простирается от&nbsp;долины Улькейика на&nbsp;востоке, до&nbsp;Кыила на&nbsp;западе. Протяженность около 800&nbsp;км с&nbsp;востока на&nbsp;запад и&nbsp;700&nbsp;км с&nbsp;севера на&nbsp;юг, занимает общую площадь порядка 300 тысяч&nbsp;кв. километров."
+              .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+                +picture2("content", "review-map", "png", 822, 463, "Изображение карты России", 767)
+              p.inner-section__text!= "Исторически Актюбинская область формировалась и&nbsp;развивалась как приграничный регион, стоящий на&nbsp;стыке Европы и&nbsp;Азии, на&nbsp;стыке культур, и&nbsp;это во&nbsp;многом обусловило своеобразие нашей области как многонационального, поликультурного и&nbsp;поликонфессионального региона. Особенности региона определены и&nbsp;тем, что по&nbsp;его территории еще с&nbsp;древнейших времен проходили значительные миграционные потоки (торговые, караванные пути, завоевательные походы, переселение народов и&nbsp;т.д.), где в&nbsp;водовороте исторического движения консолидировались, смешивались, ассимилировались рода и&nbsp;племена, происходило взаимодействие культур и&nbsp;этносов."
+
+            section.inner-section(id="division")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!="Административно-территориальное деление"
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "review-division", "png", 822, 463, "Изображение с информацией об населении", 767)
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text!= "Актюбинская область в&nbsp;нынешних границах образована 10&nbsp;марта 1932&nbsp;года. Территория Актюбинской области составляет 300,6 тысяч км2 (11% территории Республики Казахстан, второй по&nbsp;величине регион после Карагандинской области). Регион расположен в&nbsp;северо-западной части Республики Казахстан, граничит:"
+              +text-type(reviewTextDivision)
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text!= "Административное деление области: 1&nbsp;город областного значения, 7&nbsp;городов районного подчинения, 12&nbsp;районов, 372 сельских населенных пункта."
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text!= "Население&nbsp;&mdash; 902,6&nbsp;тыс. человек, из&nbsp;них городское&nbsp;&mdash; 648,7 тысяч (71,9%). В&nbsp;состав области входят 12&nbsp;районов, 1&nbsp;город областного значения и&nbsp;7&nbsp;городов районного значения (Алга, Кандыагаш, Эмба, Жем, Темир, Шалкар, Хромтау)."
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text!= "Национальный состав: казахи&nbsp;&mdash; 83,3%, русские&nbsp;&mdash; 11,0%, украинцы&nbsp;&mdash; 2,4%, другие&nbsp;&mdash; 3,3%."
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "review-compound", "png", 822, 400, "Изображение с информацией об населении", 767)
+
+            section.inner-section(id="arrival")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!="Прибытие в Актюбинскую область"
+              +text-type(reviewTextArrival)
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "review-support", "png", 822, 1293, "Изображение с информацией по визовой поддержке", 767)
+
+            section.inner-section(id="entry")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title!="Безвизовый режим въезда"
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text!= "Страны, граждане которых имеют право на&nbsp;безвизовый въезд на&nbsp;территорию Казахстана."
+              .inner-section__img(data-aos="fade-up" data-aos-once="false" data-open-modal="picture")
+                +picture2("content", "review-flags", "png", 822, 1916, "Изображение с информацией по визовой поддержке", 767)
+
+block modals
+  +modal("modal--picture", "zoom")(data-modal="picture")
+    .modal__img-wrapper
+      .modal__img-container
+        .zoom__item
+          img(src="#")
+

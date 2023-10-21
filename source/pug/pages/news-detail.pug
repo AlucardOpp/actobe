@@ -1,0 +1,27 @@
+extends ../base/layout
+
+block variables
+  - const title = "Подробная новость — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "news-detail"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(newsDetailCrumbs)
+        section.news-detail
+          h1(data-aos="fade-up").news-detail__title-intro #{newsDetailContent.mainTitle}
+          .content
+            span(data-aos="fade-up" data-aos-delay="100") #{newsDetailContent.date}
+            .content__img(data-aos="fade-up" data-aos-delay="150")
+              +picture("content", "news-detail-1", "jpg", 800, 375, "Фото с выступления Акима", 767)(data-aos="fade-up")
+            h2(data-aos="fade-up") #{newsDetailContent.title}
+            each text in newsDetailContent.text
+              p(data-aos="fade-up") #{text}
+          a.news-detail__link.link(href="#" data-aos="fade-up") #{newsDetailContent.link}
+            +svg(25, 25, "icon-source")

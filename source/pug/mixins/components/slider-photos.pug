@@ -1,0 +1,8 @@
+mixin sliderPhotos(data, section)
+  .slider-photos
+    if (section === "card-project")
+      .slider-photos__wrapper.card-project__slider-wrapper
+        each item in data
+          .slider-photos__slide.card-project__slide
+            +picture("content", item.img, "jpg", "399", "317", item.alt)
+      +pagination-slider("card-project").slider-photos__pagination

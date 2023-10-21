@@ -1,0 +1,24 @@
+extends ../base/layout
+
+block variables
+  - const title = "Инструменты поддержки бизнеса"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "support-tools"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(supportCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--small-margin
+        h1.inner-page__title.inner-page__title--ml.inner-page__title--blue!="Инструменты поддержки бизнеса"
+        .list-link
+          ul.list-link__list
+            each item in supportList
+              li.list-link__item
+                +icon("icon-source",25,25)
+                a(href=item.href).list-link__link.link!=item.text
+          +picture2("content", "support-tools", "png", 537, 428, "Каньон", 767)

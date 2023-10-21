@@ -1,0 +1,40 @@
+mixin footer(footerMods)
+  footer.footer(class=footerMods)
+    h2.visually-hidden!="Карта сайта и контактная информация"
+    .footer__container.container.container--wide
+      .footer__content(data-accordion="parent" data-single)
+        +logo(currentPage, "footer")
+        section.footer__section(data-accordion="element")
+          h3(class="footer__title" tabindex="0" data-accordion="button")!=footerLinks.region.title
+          ul.footer__list(data-accordion="content")
+            each item in footerLinks.region.links
+              li.footer__item
+                a(class="footer__link link" href!=item.href aria-label=`Перейти к "${item.link}"`)!=item.link
+        section.footer__section(data-accordion="element")
+          h3(class="footer__title" tabindex="0" data-accordion="button")!=footerLinks.investor.title
+          ul.footer__list(data-accordion="content")
+            each item in footerLinks.investor.links
+              li.footer__item
+                a(class="footer__link link" href!=item.href aria-label=`Перейти к "${item.link}"`)!=item.link
+        section.footer__section(data-accordion="element")
+          h3(class="footer__title footer__title--proposals" tabindex="0" data-accordion="button")!=footerLinks.proposals.title
+          ul.footer__list(data-accordion="content")
+            each item in footerLinks.proposals.links
+              li.footer__item
+                a(class="footer__link link" href!=item.href aria-label=`Перейти к "${item.link}"`)!=item.link
+        section.footer__section.footer__section--information
+          h3.visually-hidden!="Контактная информация"
+          ul.footer__links
+            each item in footerLinks.links
+              li.footer__item.footer__item--information
+                  a(class="footer__link footer__link--information link" href!=item.href)!=item.link
+          ul.footer__contacts
+            li.footer__contact
+              a(class="footer__link footer__link--contact link" href="tel:+77132932078" aria-label="Позвонить на +77132932078")!="+7 (7132) 93-20-78"
+            li.footer__contact
+              a(class="footer__link footer__link--contact link" href="tel:+77132932064" aria-label="Позвонить на +77132932064")!="+7 (7132) 93-20-64"
+            li.footer__contact
+              a(class="footer__link footer__link--contact link" href="mailto:mail@akto.kz" aria-label="Написать на mail@akto.kz")!="mail@akto.kz"
+            li.footer__contact!="030010, Республика Казахстан, Актюбинская область, г. Актобе, проспект Абилкайыр-хана, 40"
+          +socials()
+      p.footer__rights!="© Aktobe – Все права защищены"

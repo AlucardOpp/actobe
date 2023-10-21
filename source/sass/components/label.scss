@@ -1,0 +1,24 @@
+.label {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  z-index: 2;
+  max-width: 181.25px;
+
+  margin: 0;
+  padding: 5px 16px 5px 17px;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: $color-transparent-85;
+
+  background-color: $color-catalina-blue;
+  border-radius: 5px;
+
+  @include vp--767 {
+    top: 10px;
+    left: 15px;
+    padding: 2px 14px 2px 14px;
+    line-height: 19px;
+  }
+}

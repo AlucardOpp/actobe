@@ -1,0 +1,31 @@
+mixin sliderCards(data, section)
+  .slider-cards
+    .slider-cards__container
+      button.slider-cards__button.slider-cards__button--prev
+        +iconArrow("left", "yes", "blue")
+      button.slider-cards__button.slider-cards__button--next
+        +iconArrow("right", "yes", "blue")
+    if (section === "proposals")
+      .slider-cards__wrapper
+        each item, index in data
+          .slider-cards__slide.proposals__slide(data-aos="fade-up" data-aos-delay=`${50 + [index] * 150}`)
+            +icon("proposals-slide", 58, 54).proposals__slide-icon
+            h3.proposals__slide-title!=item.title
+            .proposals__slide-text
+              p!=item.text
+            +link("Подробнее", "right", "no", "dark-grey")(class="proposals__slide-link link--grey link--animate" href="#")
+    else if (section === "akim")
+      .slider-cards__wrapper.akim__slider-wrapper
+        each item, index in data
+          if (item.title)
+            .slider-cards__slide.akim__slide.akim__slide--quote(data-aos="fade-up" data-aos-delay=`${50 + [index] * 150}`)
+              h3.akim__slide-title!=item.title
+              .akim__slide-text
+                each sentence in item.text
+                  p!=sentence.sentence
+          else
+            .slider-cards__slide.akim__slide(data-aos="fade-up" data-aos-delay=`${50 + [index] * 150}`)
+              .akim__slide-text
+                each sentence in item.text
+                  p!=sentence.sentence
+      +pagination-slider("akim").slider-cards__pagination

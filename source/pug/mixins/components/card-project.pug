@@ -1,0 +1,38 @@
+mixin card-project(item,h1)
+  if(item.href)
+    a.card-project(href!=item.href)
+      +card-projectInner(item,h1)
+  else
+    .card-project
+      +card-projectInner(item,h1)
+
+mixin card-projectInner(item,h1)
+    .card-project__photo(data-aos="fade-up")
+      if (item.slider)
+        +sliderPhotos(item.slider.slides, "card-project")
+      else
+        +picture("content", item.image.name, "jpg", item.image.width, item.image.height, item.image.alt)
+      +label(item.level)
+    .card-project__details(data-aos="fade-up" data-aos-delay="200")
+      if(h1=="h1")
+        h1.card-project__title!=item.title
+      else
+        h3.card-project__title!=item.title
+      p.card-project__region!=item.region
+      p.card-project__line
+        span Стоимость проекта:
+        !=item.cost
+      p.card-project__line
+        span Отрасль:
+        !=item.branch
+      p.card-project__line
+        span Статус:
+        !=item.status
+      p.card-project__line
+        span Инициатр проекта:
+        !=item.initiator
+      p.card-project__line
+        span Ввод в эксплуатацию:
+        !=item.start
+    if(item.href)
+      +iconArrow("right", "yes", "blue", "animate").card-project__link

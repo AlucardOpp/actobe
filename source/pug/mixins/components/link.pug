@@ -1,0 +1,7 @@
+mixin link(text, direction, fill, color, icon)
+  if (icon === "icon")
+    a(class!=`${attributes.class} link link--icon` href!=attributes.href)!=text
+      +icon("link-icon", 17, 17)
+  else
+    a(class!=`${attributes.class} link` href!=attributes.href)!=text
+      +iconArrow(direction, fill, color)

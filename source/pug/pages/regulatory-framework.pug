@@ -1,0 +1,24 @@
+extends ../base/layout
+
+block variables
+  - const title = "Нормативная база"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "regulatory-framework"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--widest
+        +breadcrumbs(regulatoryCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--small-margin
+        h1.inner-page__title.inner-page__title--ml.inner-page__title--blue!="Нормативная база"
+        .list-link
+          ul.list-link__list
+            each item in regulatoryList
+              li.list-link__item
+                +icon("icon-source",25,25)
+                a(href=item.href).list-link__link.link!=item.text
+          +picture2("content", "regulatory-framework", "png", 521, 324, "Памятник", 767)

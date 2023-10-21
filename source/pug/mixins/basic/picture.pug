@@ -1,0 +1,21 @@
+mixin picture(path, image, format, width, height, altText, mobile)
+  if (mobile)
+    picture(class!=attributes.class)
+        source(type='image/webp', media="(max-width: " + mobile + "px)", srcset="img/" + path + "/" + image + "-mobile.webp" + ", " + "img/" + path + "/" + image + "-mobile@2x.webp" + " 2x")
+        source(type='image/webp', srcset="img/" + path + "/" + image + ".webp" + ", " + "img/" + path + "/" + image + "@2x.webp" + " 2x")
+        source(media="(max-width: " + mobile + "px)", srcset="img/" + path + "/" + image + "-mobile.jpg" + ", " + "img/" + path + "/" + image + "-mobile@2x.jpg" + " 2x")
+        img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
+  else
+    picture(class!=attributes.class)
+      //- source(type='image/webp', srcset="img/" + path + "/" + image + ".webp" + ", " + "img/" + path + "/" + image + "@2x.webp" + " 2x")
+      img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
+
+mixin picture2(path, image, format, width, height, altText, mobile)
+  if (mobile)
+    picture(class!=attributes.class)
+        source(media="(max-width: " + mobile + "px)", srcset="img/" + path + "/" + image + "-mobile.png" + ", " + "img/" + path + "/" + image + "-mobile@2x.png" + " 2x")
+        img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
+  //- else
+  //-   picture(class!=attributes.class)
+  //-     source(srcset="img/" + path + "/" + image + ".ebpw" + ", " + "img/" + path + "/" + image + "@2x.webp" + " 2x")
+  //-     img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)

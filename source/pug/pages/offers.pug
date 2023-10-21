@@ -1,0 +1,29 @@
+extends ../base/layout
+
+block variables
+  - const title = "Предложения — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "offers"
+
+block main
+  main
+    .inner-page
+      +innerIntro("offers")
+      .container.container--widest
+        +breadcrumbs(offersCrumbs,"white")
+        section.offers
+          .offers__wrapper
+            h1(data-aos="fade-up").offers__main-title #{offersContent.mainTitle}
+            .offers__select(data-aos="fade-up" data-aos-delay="100")
+              +custom-select(offersSelect, "", "links")
+            h2.offers__title(data-aos="fade-up" data-aos-delay="150") #{offersContent.listProjectTitle}
+          .offers__list-wrapper
+            ul.offers__list
+              each card, index in allProjects
+                li.offers__item(data-aos="fade-up" data-aos-delay!=`200`)
+                  +card-project(card)
+            +pagination-pages(paginationPages)

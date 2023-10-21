@@ -1,0 +1,22 @@
+extends ../base/layout
+
+block variables
+  - const title = "Истории успеха — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "history"
+
+block main
+  main
+    .inner-page.inner-page--middle-margin
+      .container.container--wide
+        +breadcrumbs(historyCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--middle-margin
+        h1.inner-page__title.inner-page__title--blue.inner-page__title--middle-margin="Истории успеха"
+        ul.history
+          each item in historyList
+            li.history__item(data-aos="fade-up" data-aos-delay!=`200`)
+              +card-history(item)
+        +pagination-pages(paginationPages)

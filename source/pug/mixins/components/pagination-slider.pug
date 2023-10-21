@@ -1,0 +1,5 @@
+mixin pagination-slider(modifier)
+  if(modifier)
+    .pagination-slider(class=`${attributes.class} pagination-slider--${modifier}`)
+  else
+    .pagination-slider(class=`${attributes.class}`)

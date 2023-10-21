@@ -1,0 +1,7 @@
+mixin text-type(data)
+  ul.inner-section__list(data-aos="fade-up" data-aos-once="false")
+    each item in data
+      if(item.excretion)
+        li(data-aos="fade-up" data-aos-once="false").inner-section__list.inner-section__list--excretion!= item.text
+      else
+        li(data-aos="fade-up" data-aos-once="false").inner-section__list!= item.text

@@ -1,0 +1,15 @@
+mixin custom-select(data, move, links)
+  .custom-select(data-select)
+    button(class="custom-select__button" type="button" aria-label="Выберите блок для перемещения")
+      if (move === "move")
+        span.custom-select__text.custom-select__text--nav!=data.activeItem
+      else
+        span.custom-select__text!=data.activeItem
+      span.custom-select__icon
+    ul.custom-select__list
+      each item in data.selectItems
+        if (links === "links")
+          li(class="custom-select__item" data-select-value!=`${item.id}`)
+            a(href=`#${item.href}` class="custom-select__link" aria-label=`Перейти к "${item.name}"`)!=item.name
+        else
+          li(class="custom-select__item" tabindex="0" data-select-value!=`${item.id}`)!=item.name

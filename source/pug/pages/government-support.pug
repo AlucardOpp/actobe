@@ -1,0 +1,65 @@
+extends ../base/layout
+
+block variables
+  - const title = "Государственная поддержка — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentPage = "government-support"
+
+
+block main
+  main
+    .inner-page.inner-page--middle-margin.government-support
+      .container.container--widest
+        +breadcrumbs(governmentSupportCrumbs).inner-page__breadcrumbs.inner-page__breadcrumbs--big-margin
+        h1.inner-page__title.inner-page__title--blue.inner-page__title--mobile Инвестиционные преференции
+        .inner-page__wrapper.inner-page__wrapper--columns
+          +side-nav(governmentSupportNav, "Инвестиционные преференции")
+          .inner-page__content
+            section.inner-section.inner-section--border(id="investment")
+              h2.inner-section__title.inner-section__title--no-mobile(data-aos="fade-up" data-aos-once="false")=investmentContent.mainTitle
+              p(data-aos="fade-up" data-aos-once="false").inner-section__subtitle!=investmentContent.contentSubtitle
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "investment-preferences-1", "png", 824, 511, "Карточка Государственные натурные гранты", 767)
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "investment-preferences-2", "png", 824, 523, "Карточка Освобождение от обложения таможенными пошлинами", 767)
+              p(data-aos="fade-up" data-aos-once="false").inner-section__subtitle=investmentContent.contentSubtitle2
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "investment-preferences-3", "png", 824, 278, "Карточка Преференции по налогам", 767)
+              p(data-aos="fade-up" data-aos-once="false").inner-section__subtitle=investmentContent.contentSubtitle3
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "investment-preferences-4", "png", 824, 417, "Карточка Преференции по налогам", 767)
+              a.inner-section__link.link(href="#" data-aos="fade-up" data-aos-once="false")=conditionsContent.link
+                +svg(25, 25, "icon-source")
+
+            section.inner-section.inner-section--border(id="conditions")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=conditionsContent.mainTitle
+              p(data-aos="fade-up" data-aos-once="false").inner-section__text=conditionsContent.text
+              h3(data-aos="fade-up" data-aos-once="false").inner-section__text-big=conditionsContent.contentTitle
+              ul(data-aos="fade-up" data-aos-once="false").inner-section__list
+                each item in conditionsContent.para
+                  li(data-aos="fade-up" data-aos-once="false").inner-section__list-item
+                    h4.inner-section__list-subtitle=item.title
+                    p.inner-section__list-text=item.text
+                    if(item.list)
+                      ol(data-aos="fade-up" data-aos-once="false").inner-section__list-numbers
+                        each item2 in item.list
+                          li(data-aos="fade-up" data-aos-once="false").inner-section__numbers-item
+                            p.inner-section__numbers-text=item2
+              a.inner-section__link.link(href="#" data-aos="fade-up" data-aos-once="false")=conditionsContent.link
+                +svg(25, 25, "icon-source")
+            section.inner-section.inner-section--border(id="requirements")
+              h2(data-aos="fade-up" data-aos-once="false").inner-section__title=requirementsContent.mainTitle
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "requirements-1", "png", 824, 677, "Карточка Преференции по налогам", 767)
+              a.inner-section__link.link(href="#" data-aos="fade-up" data-aos-once="false")=requirementsContent.link
+                  +svg(25, 25, "icon-source")
+              p(data-aos="fade-up" data-aos-once="false").inner-section__subtitle=requirementsContent.contentSubtitle
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "requirements-2", "png", 824, 710, "Карточка Преференции по налогам", 767)
+              p(data-aos="fade-up" data-aos-once="false").inner-section__subtitle=requirementsContent.contentSubtitle2
+              .inner-section__img(data-aos="fade-up" data-aos-once="false")
+                +picture2("content", "requirements-3", "png", 824, 686, "Карточка Преференции по налогам", 767)

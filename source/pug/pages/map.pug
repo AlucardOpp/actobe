@@ -1,0 +1,37 @@
+extends ../base/layout
+
+block variables
+  - const title = "Интерактивная карта — АКТОБЕ"
+  - const wrapperMods = "wrapper--inner"
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = false
+  - const footerMods = ""
+  - const currentPage = "map"
+
+block main
+  main
+    .wrapper__map-container
+      section.map-form
+        .map-form__header
+          button.map-form__open
+            +icon('map-icon', 28, 25)
+          h1.map-form__title!="Интерактивная карта Актюбинской области"
+        form(action="get")
+          .map-form__toggles
+            button(class="map-form__toggle map-form__toggle--base map-form__toggle--active" type="button")
+              +icon("map-form-toggle-base", 48, 48)
+              span.map-form__toggle-title!="Минерально-сырьевая база"
+            button(class="map-form__toggle map-form__toggle--objects" type="button")
+              +icon("map-form-toggle-objects", 48, 48)
+              span.map-form__toggle-title!="Объекты промышленности"
+          .map-form__filters
+            +map-accordion(mapFormBase, "base", "icon").active
+            +map-accordion(mapFormObjects, "objects")
+          button(class="map-form__apply" type="button")!="Применить"
+          button(class="map-form__reset" type="reset")!="Сбросить фильтр"
+        button(class="map-form__hide" type="button" aria-label="Спрятать фильтры")
+          +iconArrow("left", "yes", "blue").map-form__arrow
+      .map
+        iframe(class="map__map" src="https://yandex.ru/map-widget/v1/-/CCUyYNWSCD" width="400" height="400")
+        +map-balloon(mapBalloons[0]).map-balloon--show
